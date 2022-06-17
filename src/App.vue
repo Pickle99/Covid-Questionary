@@ -8,3 +8,9 @@ import HomeView from "@/views/HomeView.vue";
     <RouterView />
   </header>
 </template>
+
+<style>
+html {
+  background: #b5c0c7;
+}
+</style>
