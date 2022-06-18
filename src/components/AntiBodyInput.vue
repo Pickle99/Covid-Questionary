@@ -12,7 +12,7 @@
           type="radio"
           rules="required"
           @click="showAdditionalInputs"
-          :model="this.$store.state.data.had_antibody_test"
+          v-model="this.$store.state.data.had_antibody_test"
         />
         <label class="ml-5" for="had_antibody_test">კი</label>
       </div>
@@ -24,7 +24,7 @@
           value="{{false}}"
           type="radio"
           rules="required"
-          :model="this.$store.state.data.had_antibody_test"
+          v-model="this.$store.state.data.had_antibody_test"
           @click="hideAdditionalInputs"
         />
         <label class="ml-5" for="had_antibody_test">არა</label>

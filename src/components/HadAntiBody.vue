@@ -12,17 +12,16 @@
           type="text"
           placeholder="დდ/თთ/წწ"
           onfocus="(this.type = 'date')"
-          :model="this.$store.state.data.covid_sickness_date"
+          v-model="this.$store.state.data.antibodies.test_date"
         />
       </div>
-      <div>
+      <div class="mt-8">
         <Field
-          name="test_date"
+          name="number"
           class="pl-4 pr-96 py-3 border-black border-2"
-          type="text"
-          placeholder="დდ/თთ/წწ"
-          onfocus="(this.type = 'date')"
-          :model="this.$store.state.data.covid_sickness_date"
+          type="number"
+          placeholder="ანტისხეულების რაოდენობა"
+          v-model="this.$store.state.data.antibodies.number"
         />
       </div>
     </div>

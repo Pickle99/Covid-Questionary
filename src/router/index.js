@@ -22,6 +22,11 @@ const router = createRouter({
       name: "third",
       component: () => import("../views/ThirdPage.vue"),
     },
+    {
+      path: "/4",
+      name: "fourth",
+      component: () => import("../views/FourthPage.vue"),
+    },
   ],
 });
 

@@ -6,16 +6,19 @@
     <div class="ml-5 mt-6">
       <div>
         <Field
-          name="test_date"
+          name="covid_sickness_date"
           class="pl-4 pr-96 py-3 border-black border-2"
           type="text"
           rules="required"
           placeholder="დდ/თთ/წწ"
           onfocus="(this.type = 'date')"
-          :model="this.$store.state.data.covid_sickness_date"
+          v-model="this.$store.state.data.covid_sickness_date"
         />
       </div>
-      <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="test_date" />
+      <ErrorMessage
+        class="ml-5 mt-1 text-[#F15524]"
+        name="covid_sickness_date"
+      />
     </div>
   </div>
 </template>

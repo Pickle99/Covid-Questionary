@@ -1,0 +1,214 @@
+<template>
+  <div class="mx-52">
+    <RedberryHeader />
+    <div class="w-[30rem]">
+      <p class="mt-8">
+        რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო,
+        რომელსაც ჩვენი თანამშრომლები ქმნით, ბევრისთვის არის და ყოფილა წლების
+        განმავლობაში მიზნებისთვის ერთად ბრძოლის მიზეზი, ბევრისთვის კი — ჩვენთან
+        გადმოსვლის.
+      </p>
+      <p class="mt-10">
+        პანდემიის პერიოდში ერთმანეთსაც იშვიათად ვნახულობთ პირისპირ და
+        ყოველდღიური კომუნიკაციაც გაიშვიათდა.
+      </p>
+    </div>
+    <div class="flex">
+      <div class="w-[150rem]">
+        <Form @submit="onSubmit" id="form">
+          <div class="flex flex-col mt-10">
+            <h1 class="font-extrabold text-xl mb-3">
+              რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ
+              შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*
+            </h1>
+            <div class="flex flex-col ml-5">
+              <div class="flex items-center">
+                <Field
+                  name="non_formal_meetings"
+                  class="scale-125"
+                  value="twice_a_week"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.non_formal_meetings"
+                />
+                <label class="ml-5" for="non_formal_meetings"
+                  >კვირაში ორჯერ</label
+                >
+              </div>
+              <div>
+                <Field
+                  name="non_formal_meetings"
+                  class="my-3 scale-125"
+                  value="once_a_week"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.non_formal_meetings"
+                />
+                <label class="ml-5" for="non_formal_meetings"
+                  >კვირაში ერთხელ</label
+                >
+              </div>
+              <div>
+                <Field
+                  name="non_formal_meetings"
+                  class="my-3 scale-125"
+                  value="once_in_a_two_weeks"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.non_formal_meetings"
+                />
+                <label class="ml-5" for="non_formal_meetings"
+                  >ორ კვირაში ერთხელ</label
+                >
+              </div>
+              <div>
+                <Field
+                  name="non_formal_meetings"
+                  class="my-3 scale-125"
+                  value="once_in_a_month"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.non_formal_meetings"
+                />
+                <label class="ml-5" for="non_formal_meetings"
+                  >თვეში ერთხელ</label
+                >
+              </div>
+              <ErrorMessage
+                class="ml-5 mt-1 text-[#F15524]"
+                name="non_formal_meetings"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col mt-10">
+            <h1 class="font-extrabold text-xl mb-3">
+              კვირაში რამდენი დღე ისურვებდი ოფისიდან მუშაობას?*
+            </h1>
+            <div class="flex flex-col ml-5">
+              <div class="flex items-center">
+                <Field
+                  name="number_of_days_from_office"
+                  class="scale-125"
+                  value="0"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @click="hideAllCovidInfo"
+                />
+                <label class="ml-5" for="number_of_days_from_office">0</label>
+              </div>
+              <div>
+                <Field
+                  name="number_of_days_from_office"
+                  class="my-3 scale-125"
+                  value="1"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @click="showStageInputs"
+                />
+                <label class="ml-5" for="number_of_days_from_office">1</label>
+              </div>
+              <div>
+                <Field
+                  name="number_of_days_from_office"
+                  class="my-3 scale-125"
+                  value="2"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @click="showStageInputs"
+                />
+                <label class="ml-5" for="number_of_days_from_office">2</label>
+              </div>
+              <div>
+                <Field
+                  name="number_of_days_from_office"
+                  class="my-3 scale-125"
+                  value="3"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @click="showStageInputs"
+                />
+                <label class="ml-5" for="number_of_days_from_office">3</label>
+              </div>
+              <div>
+                <Field
+                  name="number_of_days_from_office"
+                  class="my-3 scale-125"
+                  value="4"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @click="showStageInputs"
+                />
+                <label class="ml-5" for="number_of_days_from_office">4</label>
+              </div>
+              <div>
+                <Field
+                  name="number_of_days_from_office"
+                  class="my-3 scale-125"
+                  value="5"
+                  type="radio"
+                  rules="required"
+                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @click="showStageInputs"
+                />
+                <label class="ml-5" for="number_of_days_from_office">5</label>
+              </div>
+              <ErrorMessage
+                class="ml-5 mt-1 text-[#F15524]"
+                name="had_vaccine"
+              />
+            </div>
+          </div>
+        </Form>
+      </div>
+      <div class="-mt-48">
+        <img width="2300" src="../components/images/rider.png" alt="img" />
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center" type="submit">
+    <input
+      type="image"
+      @click="back"
+      src="src/components/images/left.png"
+      alt="img"
+    />
+    <input
+      class="mx-40"
+      type="image"
+      form="form"
+      src="src/components/images/right.png"
+      alt="img"
+    />
+  </div>
+</template>
+
+<script>
+import { Form, Field, ErrorMessage } from "vee-validate";
+import RedberryHeader from "@/components/RedberryHeader.vue";
+import { mapActions } from "vuex";
+export default {
+  methods: {
+    back() {
+      this.$router.push({ name: "third" });
+      this.$store.state.count--;
+    },
+    onSubmit(values) {
+      console.log(values, null, 2);
+      this.$store.state.count++;
+      this.$router.push({ name: "thanks" });
+    },
+    ...mapActions([]),
+  },
+  components: {
+    RedberryHeader,
+    Form,
+    Field,
+    ErrorMessage,
+  },
+};
+</script>

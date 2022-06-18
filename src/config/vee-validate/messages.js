@@ -11,6 +11,9 @@ configure({
         had_covid: "Had Covid",
         had_antibody_test: "Had Antibody Test",
         test_date: "Test date",
+        covid_sickness_date: "Covid Sickness Date",
+        had_vaccine: "Had vaccine",
+        vaccination_stage: "Vaccination stage",
       },
       messages: {
         required: "The {field} field is required",
@@ -26,6 +29,9 @@ configure({
         had_covid: "კოვიდი",
         had_antibody_test: "ანტისხეულების ტესტი",
         test_date: "ტესტირების თარიღი",
+        covid_sickness_date: "კოვიდით ინფიცირების თარიღი",
+        had_vaccine: "ხართ თუ არა ვაქცინირებული",
+        vaccination_stage: "ვაქცინაციის ეტაპი",
       },
       messages: {
         required: "{field}ს ველი სავალდებულოა",

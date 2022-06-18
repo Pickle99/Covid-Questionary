@@ -21,7 +21,7 @@ export default {
   <div class="mx-52">
     <RedberryHeader />
     <div class="mt-10 flex">
-      <Form @submit="onSubmit">
+      <Form @submit="onSubmit" id="form">
         <div class="flex flex-col w-[33rem]">
           <label for="first_name" class="font-extrabold text-xl mb-3"
             >სახელი*</label
@@ -66,16 +66,20 @@ export default {
             *-ით მონიშნული ველების შევსება სავალდებულოა
           </p>
         </footer>
-        <div class="flex justify-center mt-40 flex justify-center">
-          <button>
-            <img src="../components/images/right.png" alt="img" />
-          </button>
-        </div>
       </Form>
 
       <div>
-        <img src="../components/images/human.png" alt="img" />
+        <img width="700" src="../components/images/human.png" alt="img" />
       </div>
+    </div>
+    <div class="flex justify-center mb-32" type="submit">
+      <input
+        class="mx-40"
+        type="image"
+        form="form"
+        src="src/components/images/right.png"
+        alt="img"
+      />
     </div>
   </div>
 </template>
