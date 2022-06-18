@@ -27,6 +27,11 @@ const router = createRouter({
       name: "fourth",
       component: () => import("../views/FourthPage.vue"),
     },
+    {
+      path: "/success",
+      name: "success",
+      component: () => import("../views/ThankYou.vue"),
+    },
   ],
 });
 

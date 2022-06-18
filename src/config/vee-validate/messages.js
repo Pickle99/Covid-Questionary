@@ -14,6 +14,8 @@ configure({
         covid_sickness_date: "Covid Sickness Date",
         had_vaccine: "Had vaccine",
         vaccination_stage: "Vaccination stage",
+        non_formal_meetings: "Non formal meetings",
+        number_of_days_from_office: "Number of days from office",
       },
       messages: {
         required: "The {field} field is required",
@@ -32,6 +34,8 @@ configure({
         covid_sickness_date: "კოვიდით ინფიცირების თარიღი",
         had_vaccine: "ხართ თუ არა ვაქცინირებული",
         vaccination_stage: "ვაქცინაციის ეტაპი",
+        non_formal_meetings: "არა ფორმალური შეხვედრები",
+        number_of_days_from_office: "ოფისიდან მუშაობის დღეები",
       },
       messages: {
         required: "{field}ს ველი სავალდებულოა",
