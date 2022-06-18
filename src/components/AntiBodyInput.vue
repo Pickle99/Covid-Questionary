@@ -8,7 +8,7 @@
         <Field
           name="had_antibody_test"
           class="scale-125"
-          value="{{true}}"
+          v-bind:value="true"
           type="radio"
           rules="required"
           @click="showAdditionalInputs"
@@ -21,7 +21,7 @@
         <Field
           name="had_antibody_test"
           class="scale-125"
-          value="{{false}}"
+          v-bind:value="false"
           type="radio"
           rules="required"
           v-model="this.$store.state.data.had_antibody_test"

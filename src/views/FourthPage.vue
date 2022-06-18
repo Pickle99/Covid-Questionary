@@ -89,7 +89,7 @@
                 <Field
                   name="number_of_days_from_office"
                   class="scale-125"
-                  value="0"
+                  v-bind:value="0"
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.number_of_days_from_office"
@@ -100,7 +100,7 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  value="1"
+                  v-bind:value="1"
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.number_of_days_from_office"
@@ -111,7 +111,7 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  value="2"
+                  v-bind:value="2"
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.number_of_days_from_office"
@@ -122,7 +122,7 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  value="3"
+                  v-bind:value="3"
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.number_of_days_from_office"
@@ -133,7 +133,7 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  value="4"
+                  v-bind:value="4"
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.number_of_days_from_office"
@@ -144,7 +144,7 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  value="5"
+                  v-bind:value="5"
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.number_of_days_from_office"

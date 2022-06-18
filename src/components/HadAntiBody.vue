@@ -20,6 +20,7 @@
           name="number"
           class="pl-4 pr-96 py-3 border-black border-2"
           type="number"
+          v-bind:value="this.$store.state.data.antibodies.number"
           placeholder="ანტისხეულების რაოდენობა"
           v-model="this.$store.state.data.antibodies.number"
         />

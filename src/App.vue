@@ -6,7 +6,6 @@ setLocale("ka");
 
 <template>
   <header>
-    <HomeView v-if="$route.path === '/'" to="/1" />
     <RouterView />
   </header>
 </template>

@@ -64,7 +64,7 @@ export default {
               <Field
                 name="had_covid"
                 class="scale-125"
-                value="now"
+                value="have_right_now"
                 type="radio"
                 rules="required"
                 v-model="this.$store.state.data.had_covid"
