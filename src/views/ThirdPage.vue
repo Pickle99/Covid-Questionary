@@ -16,7 +16,7 @@
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.had_vaccine"
-                  @click="hideAllCovidInfo"
+                  @click="showStageInputs"
                 />
                 <label class="ml-5" for="had_vaccine">კი</label>
               </div>
@@ -28,7 +28,7 @@
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.had_vaccine"
-                  @click="showStageInputs"
+                  @click="hideAllCovidInfo"
                 />
                 <label class="ml-5" for="had_vaccine">არა</label>
               </div>

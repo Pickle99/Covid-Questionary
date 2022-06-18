@@ -24,8 +24,8 @@
           v-bind:value="false"
           type="radio"
           rules="required"
-          v-model="this.$store.state.data.had_antibody_test"
           @click="hideAdditionalInputs"
+          v-model="this.$store.state.data.had_antibody_test"
         />
         <label class="ml-5" for="had_antibody_test">არა</label>
       </div>
