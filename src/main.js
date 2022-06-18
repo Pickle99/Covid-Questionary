@@ -13,10 +13,51 @@ app.use(router);
 const store = createStore({
   state() {
     return {
-      first_name: "",
-      last_name: "",
-      email: "",
+      data: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        had_covid: "",
+        had_antibody_test: "",
+        covid_sickness_date: "",
+        antibodies: {
+          test_date: "",
+          number: "",
+        },
+      },
+      count: 1,
+      booleans: {
+        showCovidDate: false,
+        showAntiBody: false,
+        showAntiInputs: false,
+      },
     };
+  },
+  mutations: {
+    showAdditionalInputs(state) {
+      state.booleans.showCovidDate = false;
+      state.booleans.showAntiInputs = true;
+    },
+    hideAdditionalInputs(state) {
+      state.booleans.showCovidDate = true;
+      state.booleans.showAntiInputs = false;
+    },
+    hideAllAdditionalInputs(state) {
+      state.booleans.showCovidDate = false;
+      state.booleans.showAntiInputs = false;
+      state.booleans.showAntiBody = false;
+    },
+  },
+  actions: {
+    showAdditionalInputs(context) {
+      context.commit("showAdditionalInputs");
+    },
+    hideAdditionalInputs(context) {
+      context.commit("hideAdditionalInputs");
+    },
+    hideAllAdditionalInputs(context) {
+      context.commit("hideAllAdditionalInputs");
+    },
   },
 });
 

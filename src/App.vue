@@ -1,5 +1,7 @@
 <script setup>
 import HomeView from "@/views/HomeView.vue";
+import { setLocale } from "@vee-validate/i18n";
+setLocale("ka");
 </script>
 
 <template>

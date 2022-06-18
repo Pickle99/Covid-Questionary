@@ -1,8 +1,9 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
-import { setLocale } from "@vee-validate/i18n";
+import RedberryHeader from "@/components/RedberryHeader.vue";
 export default {
   components: {
+    RedberryHeader,
     Field,
     Form,
     ErrorMessage,
@@ -10,21 +11,15 @@ export default {
   methods: {
     onSubmit(values) {
       console.log(values, null, 2);
+      this.$store.state.count++;
       this.$router.push({ name: "second" });
     },
   },
 };
-setLocale("ka");
 </script>
-
 <template>
   <div class="mx-52">
-    <div class="flex justify-between mt-20 p-2">
-      <img to="/1" src="../components/images/redberry.png" alt="img" />
-
-      <p class="font-extrabold text-3xl">1/4</p>
-    </div>
-    <div class="mt-2 border-black border-b-2"></div>
+    <RedberryHeader />
     <div class="mt-10 flex">
       <Form @submit="onSubmit">
         <div class="flex flex-col w-[33rem]">
@@ -35,7 +30,7 @@ setLocale("ka");
             class="border-2 border-black px-4 py-2"
             name="first_name"
             type="first_name"
-            v-model="this.$store.state.first_name"
+            v-model="this.$store.state.data.first_name"
             rules="required|min:2"
             placeholder="იოსებ"
           />
@@ -47,7 +42,7 @@ setLocale("ka");
             class="border-2 border-black px-4 py-2"
             name="last_name"
             type="last_name"
-            v-model="this.$store.state.last_name"
+            v-model="this.$store.state.data.last_name"
             rules="required|min:2"
             placeholder="ჯუღაშვილი"
           />
@@ -59,7 +54,7 @@ setLocale("ka");
             class="border-2 border-black px-4 py-2"
             name="email"
             type="email"
-            v-model="this.$store.state.email"
+            v-model="this.$store.state.data.email"
             rules="required|email|redberry"
             placeholder="fbi@redberry.ge"
           />

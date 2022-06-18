@@ -8,9 +8,12 @@ configure({
         first_name: "First name",
         last_name: "Last name",
         email: "Email",
+        had_covid: "Had Covid",
+        had_antibody_test: "Had Antibody Test",
+        test_date: "Test date",
       },
       messages: {
-        required: "The {field} is required",
+        required: "The {field} field is required",
         min: "The {field} must contain at least 2 symbols",
         email: "The {field} field must be email format",
       },
@@ -20,6 +23,9 @@ configure({
         first_name: "სახელი",
         last_name: "გვარი",
         email: "მეილი",
+        had_covid: "კოვიდი",
+        had_antibody_test: "ანტისხეულების ტესტი",
+        test_date: "ტესტირების თარიღი",
       },
       messages: {
         required: "{field}ს ველი სავალდებულოა",
