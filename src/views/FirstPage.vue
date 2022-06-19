@@ -9,8 +9,7 @@ export default {
     ErrorMessage,
   },
   methods: {
-    onSubmit(values) {
-      console.log(values, null, 2);
+    onSubmit() {
       this.$store.state.count++;
       this.$router.push({ name: "second" });
     },

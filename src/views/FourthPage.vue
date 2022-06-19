@@ -215,8 +215,7 @@ export default {
       this.$router.push({ name: "third" });
       this.$store.state.count--;
     },
-    onSubmit(values) {
-      console.log(values, null, 2);
+    onSubmit() {
       this.$router.push({ name: "success" });
     },
   },

@@ -14,7 +14,7 @@
                   class="scale-125"
                   v-bind:value="true"
                   type="radio"
-                  rules="required"
+                  rules="required_boolean"
                   v-model="this.$store.state.data.had_vaccine"
                   @click="showStageInputs"
                 />
@@ -25,7 +25,7 @@
                   name="had_vaccine"
                   class="my-3 scale-125"
                   v-bind:value="false"
-                  rules="required"
+                  rules="required_boolean"
                   type="radio"
                   v-model="this.$store.state.data.had_vaccine"
                   @click="hideAllCovidInfo"
@@ -75,11 +75,9 @@ import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
 export default {
   methods: {
     back() {
-      this.$router.push({ name: "second" });
-      this.$store.state.count--;
+      console.log(this.$store.state.data);
     },
-    onSubmit(values) {
-      console.log(values, null, 2);
+    onSubmit() {
       this.$store.state.count++;
       this.$router.push({ name: "fourth" });
     },

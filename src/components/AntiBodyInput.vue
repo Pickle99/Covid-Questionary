@@ -10,7 +10,7 @@
           class="scale-125"
           v-bind:value="true"
           type="radio"
-          rules="required"
+          rules="required_boolean"
           @click="showAdditionalInputs"
           v-model="this.$store.state.data.had_antibody_test"
         />
@@ -23,7 +23,7 @@
           class="scale-125"
           type="radio"
           v-bind:value="false"
-          rules="required"
+          rules="required_boolean"
           @click="hideAdditionalInputs"
           v-model="this.$store.state.data.had_antibody_test"
         />

@@ -9,8 +9,7 @@ export default {
       this.$router.push({ name: "first" });
       this.$store.state.count--;
     },
-    onSubmit(values) {
-      console.log(values, null, 2);
+    onSubmit() {
       this.$store.state.count++;
       this.$router.push({ name: "third" });
     },

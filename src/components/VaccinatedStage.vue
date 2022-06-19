@@ -80,7 +80,6 @@ export default {
   components: {
     Field,
     ErrorMessage,
-    CovidAdditionalComment,
   },
 };
 </script>
