@@ -12,7 +12,7 @@
                 <Field
                   name="had_vaccine"
                   class="scale-125"
-                  value="yes"
+                  v-bind:value="true"
                   type="radio"
                   rules="required"
                   v-model="this.$store.state.data.had_vaccine"
@@ -24,9 +24,9 @@
                 <Field
                   name="had_vaccine"
                   class="my-3 scale-125"
-                  value="no"
-                  type="radio"
+                  v-bind:value="false"
                   rules="required"
+                  type="radio"
                   v-model="this.$store.state.data.had_vaccine"
                   @click="hideAllCovidInfo"
                 />
@@ -39,6 +39,9 @@
             </div>
           </div>
           <VaccinatedStage v-if="this.$store.state.booleans.showStage" />
+          <VaccinationStageTwo
+            v-if="this.$store.state.booleans.showWaitingInfo"
+          />
         </Form>
       </div>
       <div>
@@ -68,6 +71,7 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import { mapActions } from "vuex";
 import VaccinatedStage from "@/components/VaccinatedStage.vue";
+import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
 export default {
   methods: {
     back() {
@@ -89,6 +93,7 @@ export default {
   components: {
     VaccinatedStage,
     RedberryHeader,
+    VaccinationStageTwo,
     Form,
     Field,
     ErrorMessage,

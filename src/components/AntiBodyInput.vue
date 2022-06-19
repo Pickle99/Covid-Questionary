@@ -21,8 +21,8 @@
         <Field
           name="had_antibody_test"
           class="scale-125"
-          v-bind:value="false"
           type="radio"
+          v-bind:value="false"
           rules="required"
           @click="hideAdditionalInputs"
           v-model="this.$store.state.data.had_antibody_test"

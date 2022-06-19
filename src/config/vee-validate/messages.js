@@ -16,6 +16,7 @@ configure({
         vaccination_stage: "Vaccination stage",
         non_formal_meetings: "Non formal meetings",
         number_of_days_from_office: "Number of days from office",
+        i_am_waiting: "What are you waiting for",
       },
       messages: {
         required: "The {field} field is required",
@@ -36,6 +37,7 @@ configure({
         vaccination_stage: "ვაქცინაციის ეტაპი",
         non_formal_meetings: "არა ფორმალური შეხვედრები",
         number_of_days_from_office: "ოფისიდან მუშაობის დღეები",
+        i_am_waiting: "რაც ელოდები",
       },
       messages: {
         required: "{field}ს ველი სავალდებულოა",

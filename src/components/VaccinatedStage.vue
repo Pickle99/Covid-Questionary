@@ -10,7 +10,7 @@
           type="radio"
           rules="required"
           v-model="this.$store.state.data.vaccination_stage"
-          @click="hideAllCovidAdditionals"
+          @click="hideLink"
         />
         <label class="ml-5" for="vaccination_stage"
           >პირველი დოზა და დარეგისტრირებული ვარ მეორეზე</label
@@ -24,7 +24,7 @@
           type="radio"
           rules="required"
           v-model="this.$store.state.data.vaccination_stage"
-          @click="hideCovidInfo"
+          @click="hideLink"
         />
         <label class="ml-5" for="vaccination_stage">სრულად აცრილი ვარ</label>
       </div>
@@ -37,7 +37,7 @@
           type="radio"
           rules="required"
           v-model="this.$store.state.data.vaccination_stage"
-          @click="showCovidInfo"
+          @click="showLink"
         />
         <label class="ml-5" for="vaccination_stage"
           >პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</label
@@ -46,7 +46,18 @@
       <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="vaccination_stage" />
     </div>
   </div>
-  <CovidAdditionalComment v-if="this.$store.state.booleans.showCovidInfo" />
+  <div
+    class="flex flex-col mt-10 ml-10"
+    v-if="this.$store.state.booleans.showLink"
+  >
+    <h1 class="font-semibold">
+      რომ არ გადადო,
+      <p>ბარემ ახლავე დარეგისტრირდი</p>
+    </h1>
+    <a class="text-blue-500 font-semibold" href="https://booking.moh.gov.ge/"
+      >https://booking.moh.gov.ge/</a
+    >
+  </div>
   <div
     v-if="this.$store.state.booleans.showCovidInfoLink"
     class="mt-10 ml-10 font-bold"
@@ -64,11 +75,7 @@ import { mapActions } from "vuex";
 import CovidAdditionalComment from "@/components/CovidAdditionalComment.vue";
 export default {
   methods: {
-    ...mapActions([
-      "hideCovidInfo",
-      "showCovidInfo",
-      "hideAllCovidAdditionals",
-    ]),
+    ...mapActions(["showLink", "hideLink"]),
   },
   components: {
     Field,

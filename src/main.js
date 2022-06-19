@@ -26,6 +26,7 @@ const store = createStore({
         },
         had_vaccine: "",
         vaccination_stage: "",
+        i_am_waiting: "",
         non_formal_meetings: "",
         number_of_days_from_office: "",
         what_about_meetings_in_live: "",
@@ -38,7 +39,9 @@ const store = createStore({
         showAntiInputs: false,
         showStage: false,
         showCovidInfo: false,
+        showWaitingInfo: false,
         showCovidInfoLink: false,
+        showLink: false,
       },
     };
   },
@@ -58,6 +61,7 @@ const store = createStore({
     },
     showStageInputs(state) {
       state.booleans.showStage = true;
+      state.booleans.showWaitingInfo = false;
     },
     showCovidInfo(state) {
       state.booleans.showCovidInfo = true;
@@ -71,10 +75,18 @@ const store = createStore({
       state.booleans.showCovidInfo = false;
       state.booleans.showCovidInfoLink = false;
       state.booleans.showStage = false;
+      state.booleans.showWaitingInfo = true;
     },
     hideAllCovidAdditionals(state) {
+      state.booleans.showStage = false;
       state.booleans.showCovidInfo = false;
       state.booleans.showCovidInfoLink = false;
+    },
+    showLink(state) {
+      state.booleans.showLink = true;
+    },
+    hideLink(state) {
+      state.booleans.showLink = false;
     },
   },
   actions: {
@@ -101,6 +113,12 @@ const store = createStore({
     },
     hideAllCovidAdditionals(context) {
       context.commit("hideAllCovidAdditionals");
+    },
+    showLink(context) {
+      context.commit("showLink");
+    },
+    hideLink(context) {
+      context.commit("hideLink");
     },
   },
 });

@@ -8,9 +8,9 @@
         <Field
           name="covid_sickness_date"
           class="pl-4 pr-96 py-3 border-black border-2"
-          type="text"
           rules="required"
           placeholder="დდ/თთ/წწ"
+          type="text"
           onfocus="(this.type = 'date')"
           v-model="this.$store.state.data.covid_sickness_date"
         />
