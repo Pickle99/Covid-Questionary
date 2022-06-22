@@ -1,8 +1,9 @@
 <script>
-import { Form, Field, ErrorMessage } from "vee-validate";
+import { ErrorMessage, Field, Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import AntiBodyInput from "@/components/AntiBodyInput.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
+
 export default {
   methods: {
     back() {
@@ -10,10 +11,28 @@ export default {
       this.$store.state.count--;
     },
     onSubmit() {
+      Object.keys(this.$store.state.data).forEach((key) => {
+        if (!this.$store.state.data[key]) {
+          delete this.$store.state.data[key];
+        }
+      });
+      Object.keys(this.$store.state.data.antibodies).forEach((key) => {
+        if (!this.$store.state.data.antibodies[key]) {
+          delete this.$store.state.data.antibodies[key];
+        }
+      });
+      // this.$store.state.data.covid_sickness_date.replace(/-/g, "/");
       this.$store.state.count++;
       this.$router.push({ name: "third" });
     },
     ...mapActions(["hideAllAdditionalInputs"]),
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        data: this.data,
+        fieldName,
+        updatedValue,
+      });
+    },
   },
   components: {
     RedberryHeader,
@@ -21,6 +40,12 @@ export default {
     Form,
     Field,
     ErrorMessage,
+  },
+  computed: {
+    ...mapState({
+      data: (state) => state.data,
+      had_covid: (state) => state.data.had_covid,
+    }),
   },
 };
 </script>
@@ -39,10 +64,10 @@ export default {
               <Field
                 name="had_covid"
                 class="scale-125"
-                value="yes"
                 type="radio"
                 rules="required"
-                v-model="this.$store.state.data.had_covid"
+                value="yes"
+                @input="updateData('had_covid', $event.target.value)"
                 @click="this.$store.state.booleans.showAntiBody = true"
               />
               <label class="ml-5" for="had_covid">კი</label>
@@ -54,7 +79,7 @@ export default {
                 value="no"
                 type="radio"
                 rules="required"
-                v-model="this.$store.state.data.had_covid"
+                @input="updateData('had_covid', $event.target.value)"
                 @click="hideAllAdditionalInputs"
               />
               <label class="ml-5" for="had_covid">არა</label>
@@ -66,7 +91,7 @@ export default {
                 value="have_right_now"
                 type="radio"
                 rules="required"
-                v-model="this.$store.state.data.had_covid"
+                @input="updateData('had_covid', $event.target.value)"
                 @click="hideAllAdditionalInputs"
               />
               <label class="ml-5" for="had_covid">ახლა მაქვს</label>

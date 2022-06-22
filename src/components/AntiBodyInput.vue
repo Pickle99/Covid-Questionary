@@ -8,11 +8,11 @@
         <Field
           name="had_antibody_test"
           class="scale-125"
-          v-bind:value="true"
+          :value="true"
           type="radio"
           rules="required_boolean"
           @click="showAdditionalInputs"
-          v-model="this.$store.state.data.had_antibody_test"
+          @input="updateData('had_antibody_test', $event.target.value)"
         />
         <label class="ml-5" for="had_antibody_test">კი</label>
       </div>
@@ -22,10 +22,10 @@
           name="had_antibody_test"
           class="scale-125"
           type="radio"
-          v-bind:value="false"
+          :value="false"
           rules="required_boolean"
           @click="hideAdditionalInputs"
-          v-model="this.$store.state.data.had_antibody_test"
+          @input="updateData('had_antibody_test', $event.target.value)"
         />
         <label class="ml-5" for="had_antibody_test">არა</label>
       </div>
@@ -38,7 +38,7 @@
 
 <script>
 import { Field, ErrorMessage } from "vee-validate";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import CovidDateInput from "@/components/CovidDateInput.vue";
 import HadAntiBody from "@/components/HadAntiBody.vue";
 export default {
@@ -48,8 +48,21 @@ export default {
     CovidDateInput,
     HadAntiBody,
   },
+  computed: {
+    ...mapState({
+      data: (state) => state.data,
+      had_antibody_test: (state) => state.data.had_antibody_test,
+    }),
+  },
   methods: {
     ...mapActions(["showAdditionalInputs", "hideAdditionalInputs"]),
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        data: this.data,
+        fieldName,
+        updatedValue,
+      });
+    },
   },
 };
 </script>

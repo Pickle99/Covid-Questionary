@@ -26,10 +26,12 @@
                 <Field
                   name="non_formal_meetings"
                   class="scale-125"
-                  value="twice_a_week"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.non_formal_meetings"
+                  value="twice_a_week"
+                  @input="
+                    updateData('non_formal_meetings', $event.target.value)
+                  "
                 />
                 <label class="ml-5" for="non_formal_meetings"
                   >კვირაში ორჯერ</label
@@ -39,10 +41,12 @@
                 <Field
                   name="non_formal_meetings"
                   class="my-3 scale-125"
-                  value="once_a_week"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.non_formal_meetings"
+                  value="once_a_week"
+                  @input="
+                    updateData('non_formal_meetings', $event.target.value)
+                  "
                 />
                 <label class="ml-5" for="non_formal_meetings"
                   >კვირაში ერთხელ</label
@@ -52,10 +56,11 @@
                 <Field
                   name="non_formal_meetings"
                   class="my-3 scale-125"
-                  value="once_in_a_two_weeks"
                   type="radio"
-                  rules="required"
-                  v-model="this.$store.state.data.non_formal_meetings"
+                  value="once_in_a_two_weeks"
+                  @input="
+                    updateData('non_formal_meetings', $event.target.value)
+                  "
                 />
                 <label class="ml-5" for="non_formal_meetings"
                   >ორ კვირაში ერთხელ</label
@@ -65,10 +70,12 @@
                 <Field
                   name="non_formal_meetings"
                   class="my-3 scale-125"
-                  value="once_in_a_month"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.non_formal_meetings"
+                  value="once_in_a_month"
+                  @input="
+                    updateData('non_formal_meetings', $event.target.value)
+                  "
                 />
                 <label class="ml-5" for="non_formal_meetings"
                   >თვეში ერთხელ</label
@@ -89,10 +96,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="scale-125"
-                  v-bind:value="0"
+                  :value="0"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">0</label>
               </div>
@@ -100,10 +112,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  v-bind:value="1"
+                  :value="1"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">1</label>
               </div>
@@ -111,10 +128,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  v-bind:value="2"
+                  :value="2"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">2</label>
               </div>
@@ -122,10 +144,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  v-bind:value="3"
+                  :value="3"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">3</label>
               </div>
@@ -133,10 +160,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  v-bind:value="4"
+                  :value="4"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">4</label>
               </div>
@@ -144,10 +176,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  v-bind:value="5"
+                  :value="5"
                   type="radio"
                   rules="required"
-                  v-model="this.$store.state.data.number_of_days_from_office"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">5</label>
               </div>
@@ -166,7 +203,10 @@
               name="what_about_meetings_in_live"
               type="text"
               class="my-3 w-[38rem] h-[10rem] border-black border-2"
-              v-model="this.$store.state.data.what_about_meetings_in_live"
+              :value="what_about_meetings_in_live"
+              @input="
+                updateData('what_about_meetings_in_live', $event.target.value)
+              "
             />
           </div>
           <div>
@@ -178,7 +218,10 @@
               name="tell_us_your_opinion_about_us"
               type="text"
               class="my-3 w-[38rem] h-[10rem] border-black border-2"
-              v-model="this.$store.state.data.tell_us_your_opinion_about_us"
+              :value="tell_us_your_opinion_about_us"
+              @input="
+                updateData('tell_us_your_opinion_about_us', $event.target.value)
+              "
             />
           </div>
           <div class="mt-10 flex justify-end w-[38rem]">
@@ -209,6 +252,7 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
+import { mapState } from "vuex";
 export default {
   methods: {
     back() {
@@ -218,12 +262,29 @@ export default {
     onSubmit() {
       this.$router.push({ name: "success" });
     },
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        data: this.data,
+        fieldName,
+        updatedValue,
+      });
+    },
   },
   components: {
     RedberryHeader,
     Form,
     Field,
     ErrorMessage,
+  },
+  computed: {
+    ...mapState({
+      data: (state) => state.data,
+      non_formal_meetings: (state) => state.data.non_formal_meetings,
+      number_of_days_from_office: (state) => state.number_of_days_from_office,
+      what_about_meetings_in_live: (state) => state.what_about_meetings_in_live,
+      tell_us_your_opinion_about_us: (state) =>
+        state.tell_us_your_opinion_about_us,
+    }),
   },
 };
 </script>

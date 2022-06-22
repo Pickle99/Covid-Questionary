@@ -1,6 +1,7 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
+import { mapState } from "vuex";
 export default {
   components: {
     RedberryHeader,
@@ -13,6 +14,21 @@ export default {
       this.$store.state.count++;
       this.$router.push({ name: "second" });
     },
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        data: this.data,
+        fieldName,
+        updatedValue,
+      });
+    },
+  },
+  computed: {
+    ...mapState({
+      data: (state) => state.data,
+      first_name: (state) => state.data.first_name,
+      last_name: (state) => state.data.last_name,
+      email: (state) => state.data.email,
+    }),
   },
 };
 </script>
@@ -29,7 +45,8 @@ export default {
             class="border-2 border-black px-4 py-2"
             name="first_name"
             type="first_name"
-            v-model="this.$store.state.data.first_name"
+            :value="first_name"
+            @input="updateData('first_name', $event.target.value)"
             rules="required|min:2"
             placeholder="იოსებ"
           />
@@ -41,7 +58,8 @@ export default {
             class="border-2 border-black px-4 py-2"
             name="last_name"
             type="last_name"
-            v-model="this.$store.state.data.last_name"
+            :value="last_name"
+            @input="updateData('last_name', $event.target.value)"
             rules="required|min:2"
             placeholder="ჯუღაშვილი"
           />
@@ -53,7 +71,8 @@ export default {
             class="border-2 border-black px-4 py-2"
             name="email"
             type="email"
-            v-model="this.$store.state.data.email"
+            :value="email"
+            @input="updateData('email', $event.target.value)"
             rules="required|email|redberry"
             placeholder="fbi@redberry.ge"
           />

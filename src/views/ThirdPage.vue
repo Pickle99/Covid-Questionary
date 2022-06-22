@@ -12,10 +12,11 @@
                 <Field
                   name="had_vaccine"
                   class="scale-125"
-                  v-bind:value="true"
                   type="radio"
                   rules="required_boolean"
-                  v-model="this.$store.state.data.had_vaccine"
+                  :value="had_vaccine || true"
+                  @input="updateData('had_vaccine', true)"
+                  @checked="true"
                   @click="showStageInputs"
                 />
                 <label class="ml-5" for="had_vaccine">კი</label>
@@ -24,10 +25,11 @@
                 <Field
                   name="had_vaccine"
                   class="my-3 scale-125"
-                  v-bind:value="false"
                   rules="required_boolean"
+                  :value="false || had_vaccine"
                   type="radio"
-                  v-model="this.$store.state.data.had_vaccine"
+                  @input="updateData('had_vaccine', false)"
+                  :checked="false"
                   @click="hideAllCovidInfo"
                 />
                 <label class="ml-5" for="had_vaccine">არა</label>
@@ -69,10 +71,16 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import VaccinatedStage from "@/components/VaccinatedStage.vue";
 import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
 export default {
+  computed: {
+    ...mapState({
+      data: (state) => state.data,
+      had_vaccine: (state) => state.data.had_vaccine,
+    }),
+  },
   methods: {
     back() {
       console.log(this.$store.state.data);
@@ -87,6 +95,13 @@ export default {
       "hideCovidInfo",
       "hideAllCovidInfo",
     ]),
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        data: this.data,
+        fieldName,
+        updatedValue,
+      });
+    },
   },
   components: {
     VaccinatedStage,

@@ -88,6 +88,9 @@ const store = createStore({
     hideLink(state) {
       state.booleans.showLink = false;
     },
+    updateField(state, { data, fieldName, updatedValue }) {
+      data[fieldName] = updatedValue;
+    },
   },
   actions: {
     showAdditionalInputs(context) {
@@ -119,6 +122,12 @@ const store = createStore({
     },
     hideLink(context) {
       context.commit("hideLink");
+    },
+    updateFirstName(context, payload) {
+      context.commit("updateFirstName", payload);
+    },
+    updateField({ commit }, { data, fieldName, updatedValue }) {
+      commit("updateField", { data, fieldName, updatedValue });
     },
   },
 });

@@ -9,7 +9,7 @@
           value="first_dosage_and_registered_on_the_second"
           type="radio"
           rules="required"
-          v-model="this.$store.state.data.vaccination_stage"
+          @input="updateData('vaccination_stage', $event.target.value)"
           @click="hideLink"
         />
         <label class="ml-5" for="vaccination_stage"
@@ -23,7 +23,7 @@
           value="fully_vaccinated"
           type="radio"
           rules="required"
-          v-model="this.$store.state.data.vaccination_stage"
+          @input="updateData('vaccination_stage', $event.target.value)"
           @click="hideLink"
         />
         <label class="ml-5" for="vaccination_stage">სრულად აცრილი ვარ</label>
@@ -36,7 +36,7 @@
           value="first_dosage_and_not_registered_yet"
           type="radio"
           rules="required"
-          v-model="this.$store.state.data.vaccination_stage"
+          @input="updateData('vaccination_stage', $event.target.value)"
           @click="showLink"
         />
         <label class="ml-5" for="vaccination_stage"
@@ -71,15 +71,27 @@
 
 <script>
 import { Field, ErrorMessage } from "vee-validate";
-import { mapActions } from "vuex";
-import CovidAdditionalComment from "@/components/CovidAdditionalComment.vue";
+import { mapActions, mapState } from "vuex";
 export default {
   methods: {
     ...mapActions(["showLink", "hideLink"]),
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        data: this.data,
+        fieldName,
+        updatedValue,
+      });
+    },
   },
   components: {
     Field,
     ErrorMessage,
+  },
+  computed: {
+    ...mapState({
+      data: (state) => state.data,
+      vaccination_stage: (state) => state.data.vaccination_stage,
+    }),
   },
 };
 </script>

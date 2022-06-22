@@ -9,10 +9,10 @@
           name="covid_sickness_date"
           class="pl-4 pr-96 py-3 border-black border-2"
           rules="required"
-          placeholder="დდ/თთ/წწ"
-          type="text"
-          onfocus="(this.type = 'date')"
-          v-model="this.$store.state.data.covid_sickness_date"
+          type="date"
+          pattern="dd/mm/yyyy"
+          :value="covid_sickness_date"
+          @input="updateData('covid_sickness_date', $event.target.value)"
         />
       </div>
       <ErrorMessage
@@ -25,10 +25,26 @@
 
 <script>
 import { Field, ErrorMessage } from "vee-validate";
+import { mapState } from "vuex";
 export default {
   components: {
     Field,
     ErrorMessage,
+  },
+  methods: {
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        data: this.data,
+        fieldName,
+        updatedValue,
+      });
+    },
+  },
+  computed: {
+    ...mapState({
+      data: (state) => state.data,
+      covid_sickness_date: (state) => state.data.covid_sickness_date,
+    }),
   },
 };
 </script>

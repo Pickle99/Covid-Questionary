@@ -9,7 +9,7 @@
           value="registered_and_waiting"
           type="radio"
           rules="required"
-          v-model="this.$store.state.data.i_am_waiting"
+          @input="updateData('i_am_waiting', $event.target.value)"
           @click="hideAllCovidAdditionals"
         />
         <label class="ml-5" for="i_am_waiting"
@@ -23,7 +23,7 @@
           value="not_planning"
           type="radio"
           rules="required"
-          v-model="this.$store.state.data.i_am_waiting"
+          @input="updateData('i_am_waiting', $event.target.value)"
           @click="hideCovidInfo"
         />
         <label class="ml-5" for="i_am_waiting">არ ვგეგმავ</label>
@@ -36,7 +36,7 @@
           value="had_covid_and_planning_to_be_vaccinated"
           type="radio"
           rules="required"
-          v-model="this.$store.state.data.i_am_waiting"
+          @input="updateData('i_am_waiting', $event.target.value)"
           @click="showCovidInfo"
         />
         <label class="ml-5" for="i_am_waiting"
@@ -60,7 +60,7 @@
 
 <script>
 import { Field, ErrorMessage } from "vee-validate";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import CovidAdditionalComment from "@/components/CovidAdditionalComment.vue";
 export default {
   methods: {
@@ -69,11 +69,24 @@ export default {
       "showCovidInfo",
       "hideAllCovidAdditionals",
     ]),
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        data: this.data,
+        fieldName,
+        updatedValue,
+      });
+    },
   },
   components: {
     Field,
     ErrorMessage,
     CovidAdditionalComment,
+  },
+  computed: {
+    ...mapState({
+      data: (state) => state.data,
+      i_am_waiting: (state) => state.data.i_am_waiting,
+    }),
   },
 };
 </script>
