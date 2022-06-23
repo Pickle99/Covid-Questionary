@@ -49,18 +49,21 @@ const store = createStore({
     showAdditionalInputs(state) {
       state.booleans.showCovidDate = false;
       state.booleans.showAntiInputs = true;
+      state.data.covid_sickness_date = "";
     },
     hideAdditionalInputs(state) {
       state.booleans.showCovidDate = true;
       state.booleans.showAntiInputs = false;
+      state.data.antibodies.test_date = "";
+      state.data.antibodies.number = "";
     },
     hideAllAdditionalInputs(state) {
-      state.booleans.showCovidDate = false;
-      state.booleans.showAntiInputs = false;
-      state.booleans.showAntiBody = false;
       state.data.covid_sickness_date = "";
       state.data.antibodies.test_date = "";
       state.data.antibodies.number = "";
+      state.booleans.showCovidDate = false;
+      state.booleans.showAntiInputs = false;
+      state.booleans.showAntiBody = false;
     },
     showStageInputs(state) {
       state.booleans.showStage = true;

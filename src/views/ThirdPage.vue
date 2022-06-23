@@ -14,8 +14,8 @@
                   class="scale-125"
                   type="radio"
                   rules="required_boolean"
-                  :value="true"
-                  @input="updateData('had_vaccine', $event.target.value)"
+                  v-bind:value="true"
+                  @input="updateData('had_vaccine', true)"
                   @click="showStageInputs"
                 />
                 <label class="ml-5" for="had_vaccine">კი</label>
@@ -25,9 +25,9 @@
                   name="had_vaccine"
                   class="my-3 scale-125"
                   rules="required_boolean"
-                  :value="false"
+                  v-bind:value="false"
                   type="radio"
-                  @input="updateData('had_vaccine', $event.target.value)"
+                  @input="updateData('had_vaccine', false)"
                   @click="hideAllCovidInfo"
                 />
                 <label class="ml-5" for="had_vaccine">არა</label>

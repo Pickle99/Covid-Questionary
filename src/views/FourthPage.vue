@@ -99,12 +99,7 @@
                   :value="0"
                   type="radio"
                   rules="required"
-                  @input="
-                    updateData(
-                      'number_of_days_from_office',
-                      $event.target.value
-                    )
-                  "
+                  @input="updateData('number_of_days_from_office', 0)"
                 />
                 <label class="ml-5" for="number_of_days_from_office">0</label>
               </div>
@@ -115,12 +110,7 @@
                   :value="1"
                   type="radio"
                   rules="required"
-                  @input="
-                    updateData(
-                      'number_of_days_from_office',
-                      $event.target.value
-                    )
-                  "
+                  @input="updateData('number_of_days_from_office', 1)"
                 />
                 <label class="ml-5" for="number_of_days_from_office">1</label>
               </div>
@@ -131,12 +121,7 @@
                   :value="2"
                   type="radio"
                   rules="required"
-                  @input="
-                    updateData(
-                      'number_of_days_from_office',
-                      $event.target.value
-                    )
-                  "
+                  @input="updateData('number_of_days_from_office', 2)"
                 />
                 <label class="ml-5" for="number_of_days_from_office">2</label>
               </div>
@@ -147,12 +132,7 @@
                   :value="3"
                   type="radio"
                   rules="required"
-                  @input="
-                    updateData(
-                      'number_of_days_from_office',
-                      $event.target.value
-                    )
-                  "
+                  @input="updateData('number_of_days_from_office', 3)"
                 />
                 <label class="ml-5" for="number_of_days_from_office">3</label>
               </div>
@@ -163,12 +143,7 @@
                   :value="4"
                   type="radio"
                   rules="required"
-                  @input="
-                    updateData(
-                      'number_of_days_from_office',
-                      $event.target.value
-                    )
-                  "
+                  @input="updateData('number_of_days_from_office', 4)"
                 />
                 <label class="ml-5" for="number_of_days_from_office">4</label>
               </div>
@@ -179,12 +154,7 @@
                   :value="5"
                   type="radio"
                   rules="required"
-                  @input="
-                    updateData(
-                      'number_of_days_from_office',
-                      $event.target.value
-                    )
-                  "
+                  @input="updateData('number_of_days_from_office', 5)"
                 />
                 <label class="ml-5" for="number_of_days_from_office">5</label>
               </div>

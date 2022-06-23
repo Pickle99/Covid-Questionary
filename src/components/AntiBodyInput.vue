@@ -12,7 +12,7 @@
           type="radio"
           rules="required_boolean"
           @click="showAdditionalInputs"
-          @input="updateData('had_antibody_test', $event.target.value)"
+          @input="updateData('had_antibody_test', true)"
         />
         <label class="ml-5" for="had_antibody_test">კი</label>
       </div>
@@ -25,7 +25,7 @@
           :value="false"
           rules="required_boolean"
           @click="hideAdditionalInputs"
-          @input="updateData('had_antibody_test', $event.target.value)"
+          @input="updateData('had_antibody_test', false)"
         />
         <label class="ml-5" for="had_antibody_test">არა</label>
       </div>
