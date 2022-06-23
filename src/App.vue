@@ -6,7 +6,11 @@ setLocale("ka");
 
 <template>
   <header>
-    <RouterView />
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </header>
 </template>
 

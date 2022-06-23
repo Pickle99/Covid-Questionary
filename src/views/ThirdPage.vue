@@ -14,9 +14,8 @@
                   class="scale-125"
                   type="radio"
                   rules="required_boolean"
-                  :value="had_vaccine || true"
-                  @input="updateData('had_vaccine', true)"
-                  @checked="true"
+                  :value="true"
+                  @input="updateData('had_vaccine', $event.target.value)"
                   @click="showStageInputs"
                 />
                 <label class="ml-5" for="had_vaccine">კი</label>
@@ -26,10 +25,9 @@
                   name="had_vaccine"
                   class="my-3 scale-125"
                   rules="required_boolean"
-                  :value="false || had_vaccine"
+                  :value="false"
                   type="radio"
-                  @input="updateData('had_vaccine', false)"
-                  :checked="false"
+                  @input="updateData('had_vaccine', $event.target.value)"
                   @click="hideAllCovidInfo"
                 />
                 <label class="ml-5" for="had_vaccine">არა</label>
@@ -83,7 +81,8 @@ export default {
   },
   methods: {
     back() {
-      console.log(this.$store.state.data);
+      this.$router.push({ name: "second" });
+      this.$store.state.count--;
     },
     onSubmit() {
       this.$store.state.count++;

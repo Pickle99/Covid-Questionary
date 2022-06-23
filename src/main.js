@@ -58,6 +58,9 @@ const store = createStore({
       state.booleans.showCovidDate = false;
       state.booleans.showAntiInputs = false;
       state.booleans.showAntiBody = false;
+      state.data.covid_sickness_date = "";
+      state.data.antibodies.test_date = "";
+      state.data.antibodies.number = "";
     },
     showStageInputs(state) {
       state.booleans.showStage = true;
@@ -89,7 +92,9 @@ const store = createStore({
       state.booleans.showLink = false;
     },
     updateField(state, { data, fieldName, updatedValue }) {
-      data[fieldName] = updatedValue;
+      if (fieldName === "test_date" || fieldName === "number") {
+        data.antibodies[fieldName] = updatedValue;
+      } else data[fieldName] = updatedValue;
     },
   },
   actions: {
