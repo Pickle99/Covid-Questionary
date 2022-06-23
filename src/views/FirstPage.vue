@@ -33,11 +33,13 @@ export default {
 };
 </script>
 <template>
-  <div class="mx-52">
+  <div class="lg:mx-52">
     <RedberryHeader />
     <div class="mt-10 flex">
       <Form @submit="onSubmit" id="form">
-        <div class="flex flex-col w-[33rem]">
+        <div
+          class="flex flex-col lg:w-[33rem] mob:w-72 mob:items-center mob:w-full"
+        >
           <label for="first_name" class="font-extrabold text-xl mb-3"
             >სახელი*</label
           >
@@ -52,7 +54,9 @@ export default {
           />
           <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="first_name" />
         </div>
-        <div class="flex flex-col my-10 w-[33rem]">
+        <div
+          class="flex flex-col my-10 lg:w-[33rem] mob:w-72 mob:items-center mob:w-full"
+        >
           <label for="გვარი" class="font-extrabold text-xl mb-3">გვარი*</label>
           <Field
             class="border-2 border-black px-4 py-2"
@@ -65,7 +69,9 @@ export default {
           />
           <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="last_name" />
         </div>
-        <div class="flex flex-col w-[33rem]">
+        <div
+          class="flex flex-col lg:w-[33rem] mob:w-72 mob:items-center mob:w-full"
+        >
           <label for="email" class="font-extrabold text-xl mb-3">მეილი*</label>
           <Field
             class="border-2 border-black px-4 py-2"
@@ -78,7 +84,7 @@ export default {
           />
           <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="email" />
         </div>
-        <footer class="mt-32 text-[#623123] mr-72">
+        <footer class="lg:mt-32 text-[#623123] lg:mr-72 mob:mt-20 mob:mx-10">
           <div class="border-black border-b-2"></div>
           <p class="mt-7 text-lg">
             *-ით მონიშნული ველების შევსება სავალდებულოა
@@ -86,11 +92,11 @@ export default {
         </footer>
       </Form>
 
-      <div>
+      <div class="mob:hidden">
         <img width="700" src="../components/images/human.png" alt="img" />
       </div>
     </div>
-    <div class="flex justify-center mb-32" type="submit">
+    <div class="flex justify-center lg:mb-32 mob:my-10" type="submit">
       <input
         class="mx-40"
         type="image"
