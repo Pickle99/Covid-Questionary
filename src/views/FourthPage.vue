@@ -96,10 +96,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="scale-125"
-                  :value="0"
+                  value="0"
                   type="radio"
                   rules="required"
-                  @input="updateData('number_of_days_from_office', 0)"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">0</label>
               </div>
@@ -107,10 +112,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  :value="1"
+                  value="1"
                   type="radio"
                   rules="required"
-                  @input="updateData('number_of_days_from_office', 1)"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">1</label>
               </div>
@@ -118,10 +128,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  :value="2"
+                  value="2"
                   type="radio"
                   rules="required"
-                  @input="updateData('number_of_days_from_office', 2)"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">2</label>
               </div>
@@ -129,10 +144,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  :value="3"
+                  value="3"
                   type="radio"
                   rules="required"
-                  @input="updateData('number_of_days_from_office', 3)"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">3</label>
               </div>
@@ -140,10 +160,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  :value="4"
+                  value="4"
                   type="radio"
                   rules="required"
-                  @input="updateData('number_of_days_from_office', 4)"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">4</label>
               </div>
@@ -151,10 +176,15 @@
                 <Field
                   name="number_of_days_from_office"
                   class="my-3 scale-125"
-                  :value="5"
+                  value="5"
                   type="radio"
                   rules="required"
-                  @input="updateData('number_of_days_from_office', 5)"
+                  @input="
+                    updateData(
+                      'number_of_days_from_office',
+                      $event.target.value
+                    )
+                  "
                 />
                 <label class="ml-5" for="number_of_days_from_office">5</label>
               </div>

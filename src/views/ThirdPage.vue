@@ -14,8 +14,8 @@
                   class="scale-125"
                   type="radio"
                   rules="required_boolean"
-                  v-bind:value="true"
-                  @input="updateData('had_vaccine', true)"
+                  value="true"
+                  @input="updateData('had_vaccine', $event.target.value)"
                   @click="showStageInputs"
                 />
                 <label class="ml-5" for="had_vaccine">კი</label>
@@ -25,9 +25,9 @@
                   name="had_vaccine"
                   class="my-3 scale-125"
                   rules="required_boolean"
-                  v-bind:value="false"
+                  value="false"
                   type="radio"
-                  @input="updateData('had_vaccine', false)"
+                  @input="updateData('had_vaccine', $event.target.value)"
                   @click="hideAllCovidInfo"
                 />
                 <label class="ml-5" for="had_vaccine">არა</label>
@@ -80,6 +80,12 @@ export default {
     }),
   },
   methods: {
+    ...mapActions([
+      "showStageInputs",
+      "showCovidInfo",
+      "hideCovidInfo",
+      "hideAllCovidInfo",
+    ]),
     back() {
       this.$router.push({ name: "second" });
       this.$store.state.count--;
@@ -88,12 +94,7 @@ export default {
       this.$store.state.count++;
       this.$router.push({ name: "fourth" });
     },
-    ...mapActions([
-      "showStageInputs",
-      "showCovidInfo",
-      "hideCovidInfo",
-      "hideAllCovidInfo",
-    ]),
+
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("updateField", {
         data: this.data,

@@ -11,17 +11,6 @@ export default {
       this.$store.state.count--;
     },
     onSubmit() {
-      Object.keys(this.$store.state.data).forEach((key) => {
-        if (!this.$store.state.data[key]) {
-          delete this.$store.state.data[key];
-        }
-      });
-      Object.keys(this.$store.state.data.antibodies).forEach((key) => {
-        if (!this.$store.state.data.antibodies[key]) {
-          delete this.$store.state.data.antibodies[key];
-        }
-      });
-      // this.$store.state.data.covid_sickness_date.replace(/-/g, "/");
       this.$store.state.count++;
       this.$router.push({ name: "third" });
     },

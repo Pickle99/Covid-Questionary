@@ -8,11 +8,11 @@
         <Field
           name="had_antibody_test"
           class="scale-125"
-          :value="true"
+          value="true"
           type="radio"
           rules="required_boolean"
           @click="showAdditionalInputs"
-          @input="updateData('had_antibody_test', true)"
+          @input="updateData('had_antibody_test', $event.target.value)"
         />
         <label class="ml-5" for="had_antibody_test">კი</label>
       </div>
@@ -22,10 +22,10 @@
           name="had_antibody_test"
           class="scale-125"
           type="radio"
-          :value="false"
+          value="false"
           rules="required_boolean"
           @click="hideAdditionalInputs"
-          @input="updateData('had_antibody_test', false)"
+          @input="updateData('had_antibody_test', $event.target.value)"
         />
         <label class="ml-5" for="had_antibody_test">არა</label>
       </div>

@@ -10,7 +10,6 @@
           class="pl-4 pr-96 py-3 border-black border-2"
           rules="required"
           type="date"
-          pattern="dd/mm/yyyy"
           :value="covid_sickness_date"
           @input="updateData('covid_sickness_date', $event.target.value)"
         />
