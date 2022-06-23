@@ -7,7 +7,7 @@
       <div>
         <Field
           name="covid_sickness_date"
-          class="pl-4 pr-96 py-3 border-black border-2"
+          class="pl-4 lg:w-[33rem] py-3 border-black border-2 mob:w-72"
           rules="required"
           type="date"
           :value="covid_sickness_date"

@@ -8,7 +8,7 @@
       <div>
         <Field
           name="test_date"
-          class="pl-4 pr-96 py-3 border-black border-2"
+          class="pl-4 lg:w-[33rem] py-3 border-black border-2 mob:w-72"
           type="date"
           placeholder="დდ/თთ/წწ"
           :value="test_date"
@@ -18,7 +18,7 @@
       <div class="mt-8">
         <Field
           name="number"
-          class="pl-4 pr-96 py-3 border-black border-2"
+          class="pl-4 lg:w-[33rem] py-3 border-black border-2 mob:w-72"
           type="number"
           placeholder="ანტისხეულების რაოდენობა"
           :value="number"

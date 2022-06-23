@@ -1,11 +1,11 @@
 <template>
-  <div class="mx-52">
+  <div class="lg:mx-52">
     <RedberryHeader />
 
     <div class="flex">
-      <div class="w-[150rem]">
+      <div class="lg:w-[150rem] mob:mx-10">
         <Form @submit="onSubmit" id="form">
-          <div class="flex flex-col mt-10">
+          <div class="flex flex-col mt-10 justify-center">
             <h1 class="font-extrabold text-xl mb-3">უკვე აცრილი ხარ?*</h1>
             <div class="flex flex-col ml-5">
               <div class="flex items-center">
@@ -44,12 +44,15 @@
           />
         </Form>
       </div>
-      <div>
+      <div class="mob:hidden">
         <img width="2300" src="../components/images/doctor2.png" alt="img" />
       </div>
     </div>
   </div>
-  <div class="flex justify-center" type="submit">
+  <div
+    class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40"
+    type="submit"
+  >
     <input
       type="image"
       @click="back"
@@ -57,7 +60,7 @@
       alt="img"
     />
     <input
-      class="mx-40"
+      class="lg:mx-40"
       type="image"
       form="form"
       src="src/components/images/right.png"

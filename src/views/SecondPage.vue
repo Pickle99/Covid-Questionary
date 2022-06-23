@@ -40,9 +40,9 @@ export default {
 </script>
 
 <template>
-  <div class="mx-52">
+  <div class="lg:mx-52">
     <RedberryHeader />
-    <div class="flex">
+    <div class="flex mob:justify-center mob:mx-10">
       <Form @submit="onSubmit" id="form">
         <div class="flex flex-col mt-5">
           <h1 class="font-extrabold text-xl mb-3">
@@ -90,7 +90,7 @@ export default {
         </div>
         <AntiBodyInput v-if="this.$store.state.booleans.showAntiBody" />
       </Form>
-      <div class="ml-96">
+      <div class="ml-96 mob:hidden">
         <img width="700" src="../components/images/human2.png" alt="img" />
       </div>
     </div>
