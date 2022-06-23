@@ -91,23 +91,26 @@ export default {
         <AntiBodyInput v-if="this.$store.state.booleans.showAntiBody" />
       </Form>
       <div class="ml-96 mob:hidden">
-        <img width="700" src="../components/images/human2.png" alt="img" />
+        <img width="700" src="@/components/images/human2.png" alt="img" />
       </div>
     </div>
-    <div class="flex justify-center mb-32 mt-20" type="submit">
-      <input
-        type="image"
-        @click="back"
-        src="src/components/images/left.png"
-        alt="img"
-      />
-      <input
-        class="mx-40"
-        type="image"
-        form="form"
-        src="src/components/images/right.png"
-        alt="img"
-      />
-    </div>
+  </div>
+  <div
+    class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40"
+    type="submit"
+  >
+    <input
+      type="image"
+      @click="back"
+      src="src/components/images/left.png"
+      alt="img"
+    />
+    <input
+      class="lg:mx-40"
+      type="image"
+      form="form"
+      src="src/components/images/right.png"
+      alt="img"
+    />
   </div>
 </template>

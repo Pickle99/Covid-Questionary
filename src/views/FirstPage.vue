@@ -93,7 +93,7 @@ export default {
       </Form>
 
       <div class="mob:hidden">
-        <img width="700" src="../components/images/human.png" alt="img" />
+        <img width="700" src="@/components/images/human.png" alt="img" />
       </div>
     </div>
     <div class="flex justify-center lg:mb-32 mob:my-10" type="submit">

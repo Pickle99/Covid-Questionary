@@ -45,7 +45,7 @@
         </Form>
       </div>
       <div class="mob:hidden">
-        <img width="2300" src="../components/images/doctor2.png" alt="img" />
+        <img width="2300" src="@/components/images/doctor2.png" alt="img" />
       </div>
     </div>
   </div>
