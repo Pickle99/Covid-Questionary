@@ -10,7 +10,7 @@ The questionnaire consists of 6 pages:
 6.Thank you page
 
 
-This template should help get you started developing with Vue 3 in Vite.
+This template below should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
 
@@ -38,8 +38,9 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Install Tailwind
 
 ```sh
-npm run lint
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
 ```
