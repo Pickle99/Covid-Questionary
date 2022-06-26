@@ -96,7 +96,6 @@ export default {
     RedberryHeader,
     VaccinationStageTwo,
     Form,
-    Field,
     ErrorMessage,
     RadioInput,
   },

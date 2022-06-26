@@ -27,7 +27,6 @@ export default {
     RedberryHeader,
     AntiBodyInput,
     Form,
-    Field,
     ErrorMessage,
     RadioInput,
   },

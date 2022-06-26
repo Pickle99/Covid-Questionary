@@ -52,7 +52,6 @@ export default {
     },
   },
   components: {
-    Field,
     ErrorMessage,
     RadioInput,
   },

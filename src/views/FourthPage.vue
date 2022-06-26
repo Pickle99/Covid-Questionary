@@ -23,65 +23,14 @@
                 შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*
               </h1>
               <div class="flex flex-col ml-5">
-                <div class="flex items-center">
-                  <Field
-                    name="non_formal_meetings"
-                    class="scale-125"
-                    type="radio"
-                    rules="required"
-                    value="twice_a_week"
-                    @input="
-                      updateData('non_formal_meetings', $event.target.value)
-                    "
-                  />
-                  <label class="ml-5" for="non_formal_meetings"
-                    >კვირაში ორჯერ</label
-                  >
-                </div>
-                <div>
-                  <Field
-                    name="non_formal_meetings"
-                    class="my-3 scale-125"
-                    type="radio"
-                    rules="required"
-                    value="once_a_week"
-                    @input="
-                      updateData('non_formal_meetings', $event.target.value)
-                    "
-                  />
-                  <label class="ml-5" for="non_formal_meetings"
-                    >კვირაში ერთხელ</label
-                  >
-                </div>
-                <div>
-                  <Field
-                    name="non_formal_meetings"
-                    class="my-3 scale-125"
-                    type="radio"
-                    value="once_in_a_two_weeks"
-                    @input="
-                      updateData('non_formal_meetings', $event.target.value)
-                    "
-                  />
-                  <label class="ml-5" for="non_formal_meetings"
-                    >ორ კვირაში ერთხელ</label
-                  >
-                </div>
-                <div>
-                  <Field
-                    name="non_formal_meetings"
-                    class="my-3 scale-125"
-                    type="radio"
-                    rules="required"
-                    value="once_in_a_month"
-                    @input="
-                      updateData('non_formal_meetings', $event.target.value)
-                    "
-                  />
-                  <label class="ml-5" for="non_formal_meetings"
-                    >თვეში ერთხელ</label
-                  >
-                </div>
+                <radio-input
+                  :key="option.id"
+                  v-for="option in options"
+                  :name="option.name"
+                  :value="option.value"
+                  :label="option.label"
+                />
+
                 <ErrorMessage
                   class="ml-5 mt-1 text-[#F15524]"
                   name="non_formal_meetings"
@@ -93,102 +42,13 @@
                 კვირაში რამდენი დღე ისურვებდი ოფისიდან მუშაობას?*
               </h1>
               <div class="flex flex-col ml-5">
-                <div class="flex items-center">
-                  <Field
-                    name="number_of_days_from_office"
-                    class="scale-125"
-                    value="0"
-                    type="radio"
-                    rules="required"
-                    @input="
-                      updateData(
-                        'number_of_days_from_office',
-                        $event.target.value
-                      )
-                    "
-                  />
-                  <label class="ml-5" for="number_of_days_from_office">0</label>
-                </div>
-                <div>
-                  <Field
-                    name="number_of_days_from_office"
-                    class="my-3 scale-125"
-                    value="1"
-                    type="radio"
-                    rules="required"
-                    @input="
-                      updateData(
-                        'number_of_days_from_office',
-                        $event.target.value
-                      )
-                    "
-                  />
-                  <label class="ml-5" for="number_of_days_from_office">1</label>
-                </div>
-                <div>
-                  <Field
-                    name="number_of_days_from_office"
-                    class="my-3 scale-125"
-                    value="2"
-                    type="radio"
-                    rules="required"
-                    @input="
-                      updateData(
-                        'number_of_days_from_office',
-                        $event.target.value
-                      )
-                    "
-                  />
-                  <label class="ml-5" for="number_of_days_from_office">2</label>
-                </div>
-                <div>
-                  <Field
-                    name="number_of_days_from_office"
-                    class="my-3 scale-125"
-                    value="3"
-                    type="radio"
-                    rules="required"
-                    @input="
-                      updateData(
-                        'number_of_days_from_office',
-                        $event.target.value
-                      )
-                    "
-                  />
-                  <label class="ml-5" for="number_of_days_from_office">3</label>
-                </div>
-                <div>
-                  <Field
-                    name="number_of_days_from_office"
-                    class="my-3 scale-125"
-                    value="4"
-                    type="radio"
-                    rules="required"
-                    @input="
-                      updateData(
-                        'number_of_days_from_office',
-                        $event.target.value
-                      )
-                    "
-                  />
-                  <label class="ml-5" for="number_of_days_from_office">4</label>
-                </div>
-                <div>
-                  <Field
-                    name="number_of_days_from_office"
-                    class="my-3 scale-125"
-                    value="5"
-                    type="radio"
-                    rules="required"
-                    @input="
-                      updateData(
-                        'number_of_days_from_office',
-                        $event.target.value
-                      )
-                    "
-                  />
-                  <label class="ml-5" for="number_of_days_from_office">5</label>
-                </div>
+                <radio-input
+                  :key="optionSecond.id"
+                  v-for="optionSecond in optionsAnother"
+                  :name="optionSecond.name"
+                  :value="optionSecond.value"
+                  :label="optionSecond.label"
+                />
                 <ErrorMessage
                   class="ml-5 mt-1 text-[#F15524]"
                   name="number_of_days_from_office"
@@ -258,6 +118,7 @@
 import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import { mapState } from "vuex";
+import RadioInput from "@/UI/RadioInput.vue";
 export default {
   methods: {
     back() {
@@ -280,6 +141,7 @@ export default {
     Form,
     Field,
     ErrorMessage,
+    RadioInput,
   },
   computed: {
     ...mapState({
@@ -290,6 +152,74 @@ export default {
       tell_us_your_opinion_about_us: (state) =>
         state.tell_us_your_opinion_about_us,
     }),
+  },
+  data() {
+    return {
+      options: [
+        {
+          id: "1",
+          name: "non_formal_meetings",
+          value: "twice_a_week",
+          label: "კვირაში ორჯერ",
+        },
+        {
+          id: "2",
+          name: "non_formal_meetings",
+          value: "once_a_week",
+          label: "კვირაში ერთხელ",
+        },
+        {
+          id: "3",
+          name: "non_formal_meetings",
+          value: "once_in_a_two_weeks",
+          label: "ორ კვირაში ერთხელ",
+        },
+        {
+          id: "4",
+          name: "non_formal_meetings",
+          value: "once_in_a_month",
+          label: "თვეში ერთხელ",
+        },
+      ],
+      optionsAnother: [
+        {
+          id: "1",
+          name: "number_of_days_from_office",
+          value: "0",
+          label: "0",
+        },
+        {
+          id: "2",
+          name: "number_of_days_from_office",
+          value: "1",
+          label: "1",
+        },
+        {
+          id: "3",
+          name: "number_of_days_from_office",
+          value: "2",
+          label: "2",
+        },
+        {
+          id: "4",
+          name: "number_of_days_from_office",
+          value: "3",
+          label: "3",
+        },
+        {
+          id: "5",
+          name: "number_of_days_from_office",
+          value: "4",
+          label: "4",
+        },
+        {
+          id: "6",
+          name: "number_of_days_from_office",
+          value: "5",
+          label: "5",
+        },
+      ],
+    };
   },
 };
 </script>

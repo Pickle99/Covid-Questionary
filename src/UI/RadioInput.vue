@@ -6,7 +6,7 @@
       type="radio"
       rules="required"
       :value="value"
-      @input="updateData('had_covid', $event.target.value)"
+      @input="updateData(name, $event.target.value)"
       @click="click"
     />
     <label class="ml-5" for="had_covid">{{ label }}</label>
@@ -14,12 +14,11 @@
 </template>
 
 <script>
-import { Field, ErrorMessage } from "vee-validate";
+import { Field } from "vee-validate";
 import { mapActions, mapState } from "vuex";
 export default {
   components: {
     Field,
-    ErrorMessage,
   },
   computed: {
     ...mapState({
@@ -45,7 +44,7 @@ export default {
     },
     click: {
       type: Function,
-      required: true,
+      required: false,
     },
   },
   methods: {
