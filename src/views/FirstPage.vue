@@ -1,6 +1,7 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
+import BasicInput from "@/UI/BasicInput.vue";
 import { mapState } from "vuex";
 export default {
   components: {
@@ -8,6 +9,7 @@ export default {
     Field,
     Form,
     ErrorMessage,
+    BasicInput,
   },
   methods: {
     onSubmit() {
@@ -30,6 +32,39 @@ export default {
       email: (state) => state.data.email,
     }),
   },
+  data() {
+    return {
+      options: [
+        {
+          id: "first_name",
+          name: "first_name",
+          type: "text",
+          value: this.first_name,
+          rules: "required|min:2",
+          placeholder: "იოსებ",
+          label: "სახელი*",
+        },
+        {
+          id: "last_name",
+          name: "last_name",
+          type: "text",
+          value: this.last_name,
+          rules: "required|min:2",
+          placeholder: "ჯუღაშვილი",
+          label: "გვარი*",
+        },
+        {
+          id: "email",
+          name: "email",
+          type: "text",
+          value: this.email,
+          rules: "required|redberry",
+          placeholder: "fbi@redberry.ge",
+          label: "მეილი*",
+        },
+      ],
+    };
+  },
 };
 </script>
 <template>
@@ -37,53 +72,19 @@ export default {
     <RedberryHeader />
     <div class="mt-10 flex">
       <Form @submit="onSubmit" id="form">
-        <div
-          class="flex flex-col lg:w-[33rem] mob:w-72 mob:items-center mob:w-full"
-        >
-          <label for="first_name" class="font-extrabold text-xl mb-3"
-            >სახელი*</label
-          >
-          <Field
-            class="border-2 border-black px-4 py-2"
-            name="first_name"
-            type="first_name"
-            :value="first_name"
-            @input="updateData('first_name', $event.target.value)"
-            rules="required|min:2"
-            placeholder="იოსებ"
-          />
-          <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="first_name" />
-        </div>
-        <div
-          class="flex flex-col my-10 lg:w-[33rem] mob:w-72 mob:items-center mob:w-full"
-        >
-          <label for="გვარი" class="font-extrabold text-xl mb-3">გვარი*</label>
-          <Field
-            class="border-2 border-black px-4 py-2"
-            name="last_name"
-            type="last_name"
-            :value="last_name"
-            @input="updateData('last_name', $event.target.value)"
-            rules="required|min:2"
-            placeholder="ჯუღაშვილი"
-          />
-          <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="last_name" />
-        </div>
-        <div
-          class="flex flex-col lg:w-[33rem] mob:w-72 mob:items-center mob:w-full"
-        >
-          <label for="email" class="font-extrabold text-xl mb-3">მეილი*</label>
-          <Field
-            class="border-2 border-black px-4 py-2"
-            name="email"
-            type="email"
-            :value="email"
-            @input="updateData('email', $event.target.value)"
-            rules="required|email|redberry"
-            placeholder="fbi@redberry.ge"
-          />
-          <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="email" />
-        </div>
+        <basic-input
+          :key="option.id"
+          v-for="option in options"
+          :name="option.name"
+          :type="option.type"
+          :value="option.value"
+          :rules="option.rules"
+          :placeholder="option.placeholder"
+          :label="option.label"
+          :divClass="option.divClass"
+          :labelClass="option.labelClass"
+          :inputClass="option.inputClass"
+        />
         <footer class="lg:mt-32 text-[#623123] lg:mr-72 mob:mt-20 mob:mx-10">
           <div class="border-black border-b-2"></div>
           <p class="mt-7 text-lg">

@@ -46,6 +46,9 @@ const store = createStore({
     };
   },
   mutations: {
+    showAntiBodyInput(state) {
+      state.booleans.showAntiBody = true;
+    },
     showAdditionalInputs(state) {
       state.booleans.showCovidDate = false;
       state.booleans.showAntiInputs = true;
@@ -61,6 +64,7 @@ const store = createStore({
       state.data.covid_sickness_date = "";
       state.data.antibodies.test_date = "";
       state.data.antibodies.number = "";
+      state.data.had_antibody_test = "";
       state.booleans.showCovidDate = false;
       state.booleans.showAntiInputs = false;
       state.booleans.showAntiBody = false;
@@ -133,6 +137,7 @@ const store = createStore({
         return state.data.what_about_meetings_in_live;
       } else delete state.data.what_about_meetings_in_live;
     },
+
     opinionGetter(state) {
       if (state.data.tell_us_your_opinion_about_us) {
         return state.data.tell_us_your_opinion_about_us;
@@ -143,6 +148,8 @@ const store = createStore({
         return (state.data.had_antibody_test = true);
       } else if (state.data.had_antibody_test === "false") {
         return (state.data.had_antibody_test = false);
+      } else if (state.data.had_antibody_test === "") {
+        delete state.data.had_antibody_test;
       }
       return state.data.had_antibody_test;
     },
@@ -173,6 +180,9 @@ const store = createStore({
     },
     showCovidInfo(context) {
       context.commit("showCovidInfo");
+    },
+    showAntiBodyInputs(context) {
+      context.commit("showAntiBodyInput");
     },
     hideCovidInfo(context) {
       context.commit("hideCovidInfo");

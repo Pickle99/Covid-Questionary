@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import AntiBodyInput from "@/components/AntiBodyInput.vue";
 import { mapActions, mapState } from "vuex";
-
+import RadioInput from "@/UI/RadioInput.vue";
 export default {
   methods: {
     back() {
@@ -14,7 +14,7 @@ export default {
       this.$store.state.count++;
       this.$router.push({ name: "third" });
     },
-    ...mapActions(["hideAllAdditionalInputs"]),
+    ...mapActions(["hideAllAdditionalInputs", "showAntiBodyInputs"]),
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("updateField", {
         data: this.data,
@@ -29,12 +29,46 @@ export default {
     Form,
     Field,
     ErrorMessage,
+    RadioInput,
   },
   computed: {
     ...mapState({
       data: (state) => state.data,
       had_covid: (state) => state.data.had_covid,
     }),
+  },
+  data() {
+    return {
+      options: [
+        {
+          id: "1",
+          name: "had_covid",
+          type: "radio",
+          value: "yes",
+          rules: "required",
+          label: "კი",
+          click: this.showAntiBodyInputs,
+        },
+        {
+          id: "2",
+          name: "had_covid",
+          type: "radio",
+          value: "no",
+          rules: "required",
+          label: "არა",
+          click: this.hideAllAdditionalInputs,
+        },
+        {
+          id: "3",
+          name: "had_covid",
+          type: "radio",
+          value: "have_right_now",
+          rules: "required",
+          label: "ახლა მაქვს",
+          click: this.hideAllAdditionalInputs,
+        },
+      ],
+    };
   },
 };
 </script>
@@ -48,45 +82,18 @@ export default {
           <h1 class="font-extrabold text-xl mb-3">
             გაქვს გადატანილი Covid-19?
           </h1>
-          <div class="flex flex-col ml-5">
-            <div class="flex items-center">
-              <Field
-                name="had_covid"
-                class="scale-125"
-                type="radio"
-                rules="required"
-                value="yes"
-                @input="updateData('had_covid', $event.target.value)"
-                @click="this.$store.state.booleans.showAntiBody = true"
-              />
-              <label class="ml-5" for="had_covid">კი</label>
-            </div>
-            <div>
-              <Field
-                name="had_covid"
-                class="my-3 scale-125"
-                value="no"
-                type="radio"
-                rules="required"
-                @input="updateData('had_covid', $event.target.value)"
-                @click="hideAllAdditionalInputs"
-              />
-              <label class="ml-5" for="had_covid">არა</label>
-            </div>
-            <div class="flex items-center">
-              <Field
-                name="had_covid"
-                class="scale-125"
-                value="have_right_now"
-                type="radio"
-                rules="required"
-                @input="updateData('had_covid', $event.target.value)"
-                @click="hideAllAdditionalInputs"
-              />
-              <label class="ml-5" for="had_covid">ახლა მაქვს</label>
-            </div>
-            <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="had_covid" />
-          </div>
+          <radio-input
+            :key="option.id"
+            v-for="option in options"
+            :name="option.name"
+            :type="option.type"
+            :value="option.value"
+            :rules="option.rules"
+            :placeholder="option.placeholder"
+            :label="option.label"
+            :click="option.click"
+          />
+          <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="had_covid" />
         </div>
         <AntiBodyInput v-if="this.$store.state.booleans.showAntiBody" />
       </Form>
