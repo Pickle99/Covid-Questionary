@@ -79,9 +79,6 @@ export default {
           :rules="option.rules"
           :placeholder="option.placeholder"
           :label="option.label"
-          :divClass="option.divClass"
-          :labelClass="option.labelClass"
-          :inputClass="option.inputClass"
         />
         <footer class="lg:mt-32 text-[#623123] lg:mr-72 mob:mt-20 mob:mx-10">
           <div class="border-black border-b-2"></div>
@@ -90,19 +87,14 @@ export default {
           </p>
         </footer>
       </Form>
-
       <div class="mob:hidden">
         <img width="700" src="@/components/images/human.png" alt="img" />
       </div>
     </div>
     <div class="flex justify-center lg:mb-32 mob:my-10" type="submit">
-      <input
-        class="mx-40"
-        type="image"
-        form="form"
-        src="src/components/images/right.png"
-        alt="img"
-      />
+      <button type="submit" form="form">
+        <img src="@/components/images/right.png" />
+      </button>
     </div>
   </div>
 </template>

@@ -95,22 +95,12 @@ export default {
       </div>
     </div>
   </div>
-  <div
-    class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40"
-    type="submit"
-  >
-    <input
-      type="image"
-      @click="back"
-      src="src/components/images/left.png"
-      alt="img"
-    />
-    <input
-      class="lg:mx-40"
-      type="image"
-      form="form"
-      src="src/components/images/right.png"
-      alt="img"
-    />
+  <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
+    <button @click="back">
+      <img src="@/components/images/left.png" />
+    </button>
+    <button class="lg:mx-40" type="submit" form="form">
+      <img src="@/components/images/right.png" />
+    </button>
   </div>
 </template>

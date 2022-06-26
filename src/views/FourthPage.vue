@@ -105,12 +105,9 @@
     </div>
   </div>
   <div class="flex justify-center mb-40 mt-40" type="submit">
-    <input
-      type="image"
-      @click="back"
-      src="src/components/images/left.png"
-      alt="img"
-    />
+    <button @click="back">
+      <img src="@/components/images/left.png" />
+    </button>
   </div>
 </template>
 

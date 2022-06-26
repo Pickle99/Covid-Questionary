@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+import store from "./store/index";
 import "./index.css";
 import "./config/vee-validate/rules";
 import "./config/vee-validate/messages";
