@@ -34,18 +34,10 @@ export default {
       type: String,
       required: true,
     },
-    type: {
-      type: String,
-      required: true,
-    },
     value: {
       type: String,
       required: true,
       default: "",
-    },
-    rules: {
-      type: String,
-      required: true,
     },
     label: {
       type: String,

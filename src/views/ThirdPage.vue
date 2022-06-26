@@ -8,30 +8,14 @@
           <div class="flex flex-col mt-10 justify-center">
             <h1 class="font-extrabold text-xl mb-3">უკვე აცრილი ხარ?*</h1>
             <div class="flex flex-col ml-5">
-              <div class="flex items-center">
-                <Field
-                  name="had_vaccine"
-                  class="scale-125"
-                  type="radio"
-                  rules="required_boolean"
-                  value="true"
-                  @input="updateData('had_vaccine', $event.target.value)"
-                  @click="showStageInputs"
-                />
-                <label class="ml-5" for="had_vaccine">კი</label>
-              </div>
-              <div>
-                <Field
-                  name="had_vaccine"
-                  class="my-3 scale-125"
-                  rules="required_boolean"
-                  value="false"
-                  type="radio"
-                  @input="updateData('had_vaccine', $event.target.value)"
-                  @click="hideAllCovidInfo"
-                />
-                <label class="ml-5" for="had_vaccine">არა</label>
-              </div>
+              <radio-input
+                :key="option.id"
+                v-for="option in options"
+                :name="option.name"
+                :value="option.value"
+                :label="option.label"
+                :click="option.click"
+              />
               <ErrorMessage
                 class="ml-5 mt-1 text-[#F15524]"
                 name="had_vaccine"
@@ -72,6 +56,7 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
+import RadioInput from "@/UI/RadioInput.vue";
 import { mapActions, mapState } from "vuex";
 import VaccinatedStage from "@/components/VaccinatedStage.vue";
 import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
@@ -113,6 +98,27 @@ export default {
     Form,
     Field,
     ErrorMessage,
+    RadioInput,
+  },
+  data() {
+    return {
+      options: [
+        {
+          id: "1",
+          name: "had_vaccine",
+          value: "true",
+          label: "კი",
+          click: this.showStageInputs,
+        },
+        {
+          id: "2",
+          name: "had_vaccine",
+          value: "false",
+          label: "არა",
+          click: this.hideAllCovidInfo,
+        },
+      ],
+    };
   },
 };
 </script>

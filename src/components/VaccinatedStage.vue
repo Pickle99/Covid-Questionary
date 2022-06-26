@@ -2,47 +2,14 @@
   <div class="flex flex-col mt-20">
     <h1 class="font-extrabold text-xl mb-3">აირჩიე რა ეტაპზე ხარ*</h1>
     <div class="flex flex-col ml-5">
-      <div class="flex items-center">
-        <Field
-          name="vaccination_stage"
-          class="scale-125"
-          value="first_dosage_and_registered_on_the_second"
-          type="radio"
-          rules="required"
-          @input="updateData('vaccination_stage', $event.target.value)"
-          @click="hideLink"
-        />
-        <label class="ml-5" for="vaccination_stage"
-          >პირველი დოზა და დარეგისტრირებული ვარ მეორეზე</label
-        >
-      </div>
-      <div>
-        <Field
-          name="vaccination_stage"
-          class="my-3 scale-125"
-          value="fully_vaccinated"
-          type="radio"
-          rules="required"
-          @input="updateData('vaccination_stage', $event.target.value)"
-          @click="hideLink"
-        />
-        <label class="ml-5" for="vaccination_stage">სრულად აცრილი ვარ</label>
-      </div>
-
-      <div>
-        <Field
-          name="vaccination_stage"
-          class="my-3 scale-125"
-          value="first_dosage_and_not_registered_yet"
-          type="radio"
-          rules="required"
-          @input="updateData('vaccination_stage', $event.target.value)"
-          @click="showLink"
-        />
-        <label class="ml-5" for="vaccination_stage"
-          >პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</label
-        >
-      </div>
+      <radio-input
+        :key="option.id"
+        v-for="option in options"
+        :name="option.name"
+        :value="option.value"
+        :label="option.label"
+        :click="option.click"
+      />
       <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="vaccination_stage" />
     </div>
   </div>
@@ -72,6 +39,7 @@
 <script>
 import { Field, ErrorMessage } from "vee-validate";
 import { mapActions, mapState } from "vuex";
+import RadioInput from "@/UI/RadioInput.vue";
 export default {
   methods: {
     ...mapActions(["showLink", "hideLink"]),
@@ -86,12 +54,40 @@ export default {
   components: {
     Field,
     ErrorMessage,
+    RadioInput,
   },
   computed: {
     ...mapState({
       data: (state) => state.data,
       vaccination_stage: (state) => state.data.vaccination_stage,
     }),
+  },
+  data() {
+    return {
+      options: [
+        {
+          id: "1",
+          name: "vaccination_stage",
+          value: "first_dosage_and_registered_on_the_second",
+          label: "პირველი დოზა და დარეგისტრირებული ვარ მეორეზე",
+          click: this.hideLink,
+        },
+        {
+          id: "2",
+          name: "vaccination_stage",
+          value: "fully_vaccinated",
+          label: "სრულად აცრილი ვარ",
+          click: this.hideLink,
+        },
+        {
+          id: "3",
+          name: "vaccination_stage",
+          value: "first_dosage_and_not_registered_yet",
+          label: "პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე",
+          click: this.showLink,
+        },
+      ],
+    };
   },
 };
 </script>

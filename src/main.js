@@ -73,19 +73,20 @@ const store = createStore({
       state.data.i_am_waiting = "";
       state.booleans.showStage = true;
       state.booleans.showWaitingInfo = false;
+      state.booleans.showCovidInfo = false;
+      state.booleans.showCovidInfoLink = false;
     },
     showCovidInfo(state) {
       state.booleans.showCovidInfo = true;
       state.booleans.showCovidInfoLink = false;
     },
     hideCovidInfo(state) {
-      state.booleans.showCovidInfo = false;
       state.booleans.showCovidInfoLink = true;
+      state.booleans.showCovidInfo = false;
     },
     hideAllCovidInfo(state) {
       state.data.vaccination_stage = "";
-      state.booleans.showCovidInfo = false;
-      state.booleans.showCovidInfoLink = false;
+      state.booleans.showLink = false;
       state.booleans.showStage = false;
       state.booleans.showWaitingInfo = true;
     },
