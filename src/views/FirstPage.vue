@@ -1,14 +1,12 @@
 <script>
-import { Form, Field, ErrorMessage } from "vee-validate";
+import { Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import BasicInput from "@/UI/BasicInput.vue";
 import { mapState } from "vuex";
 export default {
   components: {
     RedberryHeader,
-    Field,
     Form,
-    ErrorMessage,
     BasicInput,
   },
   methods: {
