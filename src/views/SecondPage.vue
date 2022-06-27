@@ -15,13 +15,6 @@ export default {
       this.$router.push({ name: "third" });
     },
     ...mapActions(["hideAllAdditionalInputs", "showAntiBodyInputs"]),
-    updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
-        data: this.data,
-        fieldName,
-        updatedValue,
-      });
-    },
   },
   components: {
     RedberryHeader,
@@ -31,10 +24,7 @@ export default {
     RadioInput,
   },
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      had_covid: (state) => state.data.had_covid,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
   data() {
     return {

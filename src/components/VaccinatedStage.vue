@@ -37,14 +37,14 @@
 </template>
 
 <script>
-import { Field, ErrorMessage } from "vee-validate";
+import { ErrorMessage } from "vee-validate";
 import { mapActions, mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
 export default {
   methods: {
     ...mapActions(["showLink", "hideLink"]),
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
+      this.$store.dispatch("dataModule/updateField", {
         data: this.data,
         fieldName,
         updatedValue,
@@ -56,10 +56,7 @@ export default {
     RadioInput,
   },
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      vaccination_stage: (state) => state.data.vaccination_stage,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
   data() {
     return {

@@ -2,29 +2,14 @@ import { createStore } from "vuex";
 import rootGetters from "./getters";
 import rootMutations from "./mutations";
 import rootActions from "./actions";
+import inputData from "./data/index";
 
 const store = createStore({
+  modules: {
+    dataModule: inputData,
+  },
   state() {
     return {
-      data: {
-        first_name: "",
-        last_name: "",
-        email: "",
-        had_covid: "",
-        had_antibody_test: "",
-        covid_sickness_date: "",
-        antibodies: {
-          test_date: "",
-          number: "",
-        },
-        had_vaccine: "",
-        vaccination_stage: "",
-        i_am_waiting: "",
-        non_formal_meetings: "",
-        number_of_days_from_office: "",
-        what_about_meetings_in_live: "",
-        tell_us_your_opinion_about_us: "",
-      },
       count: 1,
       booleans: {
         showCovidDate: false,

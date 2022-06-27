@@ -21,12 +21,7 @@ export default {
     Field,
   },
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      first_name: (state) => state.data.first_name,
-      last_name: (state) => state.data.last_name,
-      email: (state) => state.data.email,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
   props: {
     name: {
@@ -50,7 +45,7 @@ export default {
   methods: {
     ...mapActions(["hideAllAdditionalInputs"]),
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
+      this.$store.dispatch("dataModule/updateField", {
         data: this.data,
         fieldName,
         updatedValue,

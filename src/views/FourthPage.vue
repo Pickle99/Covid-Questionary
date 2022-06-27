@@ -64,7 +64,7 @@
                 name="what_about_meetings_in_live"
                 type="text"
                 class="my-3 lg:w-[38rem] lg:h-[10rem] border-black border-2 mob:w-80 mob:h-24"
-                :value="what_about_meetings_in_live"
+                :value="data.what_about_meetings_in_live"
                 @input="
                   updateData('what_about_meetings_in_live', $event.target.value)
                 "
@@ -79,7 +79,7 @@
                 name="tell_us_your_opinion_about_us"
                 type="text"
                 class="my-3 lg:w-[38rem] lg:h-[10rem] border-black border-2 mob:w-80 mob:h-24"
-                :value="tell_us_your_opinion_about_us"
+                :value="data.tell_us_your_opinion_about_us"
                 @input="
                   updateData(
                     'tell_us_your_opinion_about_us',
@@ -126,7 +126,7 @@ export default {
       this.$router.push({ name: "success" });
     },
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
+      this.$store.dispatch("dataModule/updateField", {
         data: this.data,
         fieldName,
         updatedValue,
@@ -141,14 +141,7 @@ export default {
     RadioInput,
   },
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      non_formal_meetings: (state) => state.data.non_formal_meetings,
-      number_of_days_from_office: (state) => state.number_of_days_from_office,
-      what_about_meetings_in_live: (state) => state.what_about_meetings_in_live,
-      tell_us_your_opinion_about_us: (state) =>
-        state.tell_us_your_opinion_about_us,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
   data() {
     return {

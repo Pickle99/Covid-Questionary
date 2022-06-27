@@ -11,7 +11,7 @@
           class="pl-4 lg:w-[33rem] py-3 border-black border-2 mob:w-72"
           type="date"
           placeholder="დდ/თთ/წწ"
-          :value="test_date"
+          :value="data.antibodies.test_date"
           @input="updateData('test_date', $event.target.value)"
         />
       </div>
@@ -21,7 +21,7 @@
           class="pl-4 lg:w-[33rem] py-3 border-black border-2 mob:w-72"
           type="number"
           placeholder="ანტისხეულების რაოდენობა"
-          :value="number"
+          :value="data.antibodies.number"
           @input="updateData('number', $event.target.value)"
         />
       </div>
@@ -37,10 +37,9 @@ export default {
     Field,
     ErrorMessage,
   },
-
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
+      this.$store.dispatch("dataModule/updateField", {
         data: this.data,
         fieldName,
         updatedValue,
@@ -48,11 +47,7 @@ export default {
     },
   },
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      test_date: (state) => state.data.antibodies.test_date,
-      number: (state) => state.data.antibodies.number,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
 };
 </script>

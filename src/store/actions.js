@@ -32,7 +32,4 @@ export default {
   hideLink(context) {
     context.commit("hideLink");
   },
-  updateField({ commit }, { data, fieldName, updatedValue }) {
-    commit("updateField", { data, fieldName, updatedValue });
-  },
 };

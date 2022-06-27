@@ -14,22 +14,11 @@ export default {
       this.$store.state.count++;
       this.$router.push({ name: "second" });
     },
-    updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
-        data: this.data,
-        fieldName,
-        updatedValue,
-      });
-    },
   },
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      first_name: (state) => state.data.first_name,
-      last_name: (state) => state.data.last_name,
-      email: (state) => state.data.email,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
+
   data() {
     return {
       options: [

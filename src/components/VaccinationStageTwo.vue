@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { Field, ErrorMessage } from "vee-validate";
+import { ErrorMessage } from "vee-validate";
 import { mapActions, mapState } from "vuex";
 import CovidAdditionalComment from "@/components/CovidAdditionalComment.vue";
 import RadioInput from "@/UI/RadioInput.vue";
@@ -38,7 +38,7 @@ export default {
       "hideAllCovidAdditionals",
     ]),
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
+      this.$store.dispatch("dataModule/updateField", {
         data: this.data,
         fieldName,
         updatedValue,
@@ -46,16 +46,12 @@ export default {
     },
   },
   components: {
-    Field,
     ErrorMessage,
     CovidAdditionalComment,
     RadioInput,
   },
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      i_am_waiting: (state) => state.data.i_am_waiting,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
   data() {
     return {

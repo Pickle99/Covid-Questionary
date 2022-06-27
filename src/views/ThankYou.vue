@@ -39,7 +39,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["data"]),
+    ...mapState("dataModule", ["data"]),
     ...mapGetters([
       "covidSicknessGetter",
       "testDateGetter",

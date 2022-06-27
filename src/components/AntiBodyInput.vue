@@ -49,15 +49,12 @@ export default {
     HadAntiBody,
   },
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      had_antibody_test: (state) => state.data.had_antibody_test,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
   methods: {
     ...mapActions(["showAdditionalInputs", "hideAdditionalInputs"]),
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
+      this.$store.dispatch("dataModule/updateField", {
         data: this.data,
         fieldName,
         updatedValue,

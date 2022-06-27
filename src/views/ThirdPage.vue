@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { Form, Field, ErrorMessage } from "vee-validate";
+import { Form, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import RadioInput from "@/UI/RadioInput.vue";
 import { mapActions, mapState } from "vuex";
@@ -55,10 +55,7 @@ import VaccinatedStage from "@/components/VaccinatedStage.vue";
 import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
 export default {
   computed: {
-    ...mapState({
-      data: (state) => state.data,
-      had_vaccine: (state) => state.data.had_vaccine,
-    }),
+    ...mapState("dataModule", ["data"]),
   },
   methods: {
     ...mapActions([
@@ -74,14 +71,6 @@ export default {
     onSubmit() {
       this.$store.state.count++;
       this.$router.push({ name: "fourth" });
-    },
-
-    updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
-        data: this.data,
-        fieldName,
-        updatedValue,
-      });
     },
   },
   components: {
