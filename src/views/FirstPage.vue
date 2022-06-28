@@ -2,12 +2,14 @@
 import { Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import BasicInput from "@/UI/BasicInput.vue";
+import RightButton from "@/UI/RightButton.vue";
 import { mapState } from "vuex";
 export default {
   components: {
     RedberryHeader,
     Form,
     BasicInput,
+    RightButton,
   },
   methods: {
     onSubmit() {
@@ -55,10 +57,10 @@ export default {
 };
 </script>
 <template>
-  <div class="lg:mx-52">
+  <Form as="div" class="lg:mx-52" v-slot="{ meta }">
     <RedberryHeader />
     <div class="mt-10 flex">
-      <Form @submit="onSubmit" id="form">
+      <form>
         <basic-input
           :key="option.id"
           v-for="option in options"
@@ -75,15 +77,17 @@ export default {
             *-ით მონიშნული ველების შევსება სავალდებულოა
           </p>
         </footer>
-      </Form>
+      </form>
       <div class="mob:hidden">
         <img width="700" src="@/components/images/human.png" alt="img" />
       </div>
     </div>
-    <div class="flex justify-center lg:mb-32 mob:my-10" type="submit">
-      <button type="submit" form="form">
-        <img src="@/components/images/right.png" />
-      </button>
+    <div class="flex justify-center lg:mb-32 mob:my-10">
+      <right-button
+        :onClick="onSubmit"
+        :isDisabled="!meta.valid"
+        :class="!meta.valid ? 'opacity-40' : 'opacity-100'"
+      />
     </div>
-  </div>
+  </Form>
 </template>

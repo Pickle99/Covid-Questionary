@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:mx-52">
+  <Form as="div" v-slot="{ meta }" class="lg:mx-52">
     <RedberryHeader />
     <div class="mob:flex mob:flex-col mob:justify-center mob:w-full">
       <div class="lg:w-[30rem]">
@@ -16,7 +16,7 @@
       </div>
       <div class="flex">
         <div class="lg:w-[150rem]">
-          <Form @submit="onSubmit" id="form">
+          <form>
             <div class="flex flex-col mt-10">
               <h1 class="font-extrabold lg:text-xl mb-3 mob:text-center">
                 რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ
@@ -88,22 +88,28 @@
                 "
               />
             </div>
-            <div class="mt-10 flex justify-end w-[38rem] mob:-mx-72">
-              <button
-                class="rounded-3xl text-white bg-[#208298] px-6 py-3"
-                type="submit"
-              >
-                დასრულება
-              </button>
-            </div>
-          </Form>
+            <div class="mt-10 flex justify-end w-[38rem] mob:-mx-72"></div>
+          </form>
+          <div class="flex justify-end">
+            <button
+              @click="onSubmit"
+              :class="
+                !meta.valid
+                  ? 'opacity-40 rounded-3xl text-white bg-[#208298] px-6 py-3'
+                  : 'opacity-100 rounded-3xl text-white bg-[#208298] px-6 py-3'
+              "
+              :disabled="!meta.valid"
+            >
+              დასრულება
+            </button>
+          </div>
         </div>
         <div class="lg:-mt-48 mob:hidden">
           <img width="2300" src="@/components/images/rider.png" alt="img" />
         </div>
       </div>
     </div>
-  </div>
+  </Form>
   <div class="flex justify-center mb-40 mt-40" type="submit">
     <button @click="back">
       <img src="@/components/images/left.png" />

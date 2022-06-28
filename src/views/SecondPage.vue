@@ -1,7 +1,8 @@
 <script>
-import { ErrorMessage, Field, Form } from "vee-validate";
+import { ErrorMessage, Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import AntiBodyInput from "@/components/AntiBodyInput.vue";
+import RightButton from "@/UI/RightButton.vue";
 import { mapActions, mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
 export default {
@@ -21,6 +22,7 @@ export default {
     AntiBodyInput,
     Form,
     ErrorMessage,
+    RightButton,
     RadioInput,
   },
   computed: {
@@ -57,10 +59,10 @@ export default {
 </script>
 
 <template>
-  <div class="lg:mx-52">
+  <Form as="div" class="lg:mx-52" v-slot="{ meta }">
     <RedberryHeader />
     <div class="flex mob:justify-center mob:mx-10">
-      <Form @submit="onSubmit" id="form">
+      <form>
         <div class="flex flex-col mt-5">
           <h1 class="font-extrabold text-xl mb-3">
             გაქვს გადატანილი Covid-19?
@@ -79,18 +81,20 @@ export default {
           <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="had_covid" />
         </div>
         <AntiBodyInput v-if="this.$store.state.booleans.showAntiBody" />
-      </Form>
+      </form>
       <div class="ml-96 mob:hidden">
         <img width="700" src="@/components/images/human2.png" alt="img" />
       </div>
     </div>
-  </div>
-  <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
-    <button @click="back">
-      <img src="@/components/images/left.png" />
-    </button>
-    <button class="lg:mx-40" type="submit" form="form">
-      <img src="@/components/images/right.png" />
-    </button>
-  </div>
+    <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
+      <button @click="back">
+        <img src="@/components/images/left.png" />
+      </button>
+      <right-button
+        :onClick="onSubmit"
+        :isDisabled="!meta.valid"
+        :class="!meta.valid ? 'opacity-40 lg:mx-40' : 'opacity-100 lg:mx-40'"
+      />
+    </div>
+  </Form>
 </template>
