@@ -20,7 +20,7 @@ configure({
       },
       messages: {
         required: "The {field} field is required",
-        min: "The {field} must contain at least 2 symbols",
+        min: "The {field} must contain at least 0:{min} symbols",
         email: "The {field} field must be email format",
       },
     },
@@ -41,7 +41,7 @@ configure({
       },
       messages: {
         required: "{field}ს ველი სავალდებულოა",
-        min: "{field}ს ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან",
+        min: "{field}ს ველი უნდა შედგებოდეს მინიმუმ 0:{min} სიმბოლოსგან",
         email: "თქვენ მიერ შეყვანილი {field} არასწორია",
       },
     },

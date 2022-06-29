@@ -6,7 +6,7 @@ import inputData from "./data/index";
 
 const store = createStore({
   modules: {
-    dataModule: inputData,
+    dataModule: inputData, // formData
   },
   state() {
     return {
