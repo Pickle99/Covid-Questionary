@@ -38,7 +38,7 @@
 
 <script>
 import { Field, ErrorMessage } from "vee-validate";
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 import CovidDateInput from "@/components/CovidDateInput.vue";
 import HadAntiBody from "@/components/HadAntiBody.vue";
 export default {
@@ -48,14 +48,10 @@ export default {
     CovidDateInput,
     HadAntiBody,
   },
-  computed: {
-    ...mapState("dataModule", ["data"]),
-  },
   methods: {
     ...mapActions(["showAdditionalInputs", "hideAdditionalInputs"]),
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("dataModule/updateField", {
-        data: this.data,
+      this.$store.dispatch("formData/updateField", {
         fieldName,
         updatedValue,
       });

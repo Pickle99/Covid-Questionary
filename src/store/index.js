@@ -1,12 +1,11 @@
 import { createStore } from "vuex";
-import inputData from "@/store/data/index.js";
-import rootGetters from "@/store/getters.js";
+import formData from "@/store/data/index.js";
 import rootMutations from "@/store/mutations.js";
 import rootActions from "@/store/actions.js";
 
 const store = createStore({
   modules: {
-    dataModule: inputData, // formData
+    formData: formData,
   },
   state() {
     return {
@@ -23,8 +22,6 @@ const store = createStore({
     };
   },
   mutations: rootMutations,
-
-  getters: rootGetters,
 
   actions: rootActions,
 });

@@ -15,13 +15,10 @@
 
 <script>
 import { Field } from "vee-validate";
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 export default {
   components: {
     Field,
-  },
-  computed: {
-    ...mapState("dataModule", ["data"]),
   },
   props: {
     name: {
@@ -45,8 +42,7 @@ export default {
   methods: {
     ...mapActions(["hideAllAdditionalInputs"]),
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("dataModule/updateField", {
-        data: this.data,
+      this.$store.dispatch("formData/updateField", {
         fieldName,
         updatedValue,
       });

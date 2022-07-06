@@ -38,8 +38,7 @@ export default {
       "hideAllCovidAdditionals",
     ]),
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("dataModule/updateField", {
-        data: this.data,
+      this.$store.dispatch("formData/updateField", {
         fieldName,
         updatedValue,
       });
@@ -51,7 +50,7 @@ export default {
     RadioInput,
   },
   computed: {
-    ...mapState("dataModule", ["data"]),
+    ...mapState("formData", ["data"]),
   },
   data() {
     return {

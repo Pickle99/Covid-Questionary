@@ -5,25 +5,25 @@ export default {
   showAdditionalInputs(state) {
     state.booleans.showCovidDate = false;
     state.booleans.showAntiInputs = true;
-    state.dataModule.data.covid_sickness_date = "";
+    state.formData.covid_sickness_date = "";
   },
   hideAdditionalInputs(state) {
     state.booleans.showCovidDate = true;
     state.booleans.showAntiInputs = false;
-    state.dataModule.data.antibodies.test_date = "";
-    state.dataModule.data.antibodies.number = "";
+    state.formData.antibodies.test_date = "";
+    state.formData.antibodies.number = "";
   },
   hideAllAdditionalInputs(state) {
-    state.dataModule.data.covid_sickness_date = "";
-    state.dataModule.data.antibodies.test_date = "";
-    state.dataModule.data.antibodies.number = "";
-    state.dataModule.data.had_antibody_test = "";
+    state.formData.covid_sickness_date = "";
+    state.formData.antibodies.test_date = "";
+    state.formData.antibodies.number = "";
+    state.formData.had_antibody_test = "";
     state.booleans.showCovidDate = false;
     state.booleans.showAntiInputs = false;
     state.booleans.showAntiBody = false;
   },
   showStageInputs(state) {
-    state.dataModule.data.i_am_waiting = "";
+    state.formData.i_am_waiting = "";
     state.booleans.showStage = true;
     state.booleans.showWaitingInfo = false;
     state.booleans.showCovidInfo = false;
@@ -38,7 +38,7 @@ export default {
     state.booleans.showCovidInfo = false;
   },
   hideAllCovidInfo(state) {
-    state.dataModule.data.vaccination_stage = "";
+    state.formData.vaccination_stage = "";
     state.booleans.showLink = false;
     state.booleans.showStage = false;
     state.booleans.showWaitingInfo = true;

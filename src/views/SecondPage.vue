@@ -3,7 +3,7 @@ import { ErrorMessage, Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import AntiBodyInput from "@/components/AntiBodyInput.vue";
 import RightButton from "@/UI/RightButton.vue";
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
 export default {
   methods: {
@@ -24,9 +24,6 @@ export default {
     ErrorMessage,
     RightButton,
     RadioInput,
-  },
-  computed: {
-    ...mapState("dataModule", ["data"]),
   },
   data() {
     return {

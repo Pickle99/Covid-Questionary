@@ -17,7 +17,7 @@ export default {
     },
   },
   computed: {
-    ...mapState("dataModule", ["first_name"]),
+    ...mapState("formData", ["first_name"]),
   },
 
   data() {

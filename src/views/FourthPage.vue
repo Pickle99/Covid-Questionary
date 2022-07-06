@@ -132,7 +132,7 @@ export default {
       this.$router.push({ name: "success" });
     },
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("dataModule/updateField", {
+      this.$store.dispatch("formData/updateField", {
         fieldName,
         updatedValue,
       });
@@ -146,7 +146,7 @@ export default {
     RadioInput,
   },
   computed: {
-    ...mapState("dataModule", [
+    ...mapState("formData", [
       "what_about_meetings_in_live",
       "tell_us_your_opinion_about_us",
     ]),

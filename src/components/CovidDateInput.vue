@@ -10,7 +10,7 @@
           class="pl-4 lg:w-[33rem] py-3 border-black border-2 mob:w-72"
           rules="required"
           type="date"
-          :value="data.covid_sickness_date"
+          :value="covid_sickness_date"
           @input="updateData('covid_sickness_date', $event.target.value)"
         />
       </div>
@@ -32,15 +32,14 @@ export default {
   },
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("dataModule/updateField", {
-        data: this.data,
+      this.$store.dispatch("formData/updateField", {
         fieldName,
         updatedValue,
       });
     },
   },
   computed: {
-    ...mapState("dataModule", ["data"]),
+    ...mapState("formData", ["covid_sickness_date"]),
   },
 };
 </script>

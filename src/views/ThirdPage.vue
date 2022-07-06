@@ -55,7 +55,7 @@ import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
 import RightButton from "@/UI/RightButton.vue";
 export default {
   computed: {
-    ...mapState("dataModule", ["data"]),
+    ...mapState("formData", ["data"]),
   },
   methods: {
     ...mapActions([

@@ -1,6 +1,6 @@
-import dataMutations from "@/store/data/mutations.js";
-import dataActions from "@/store/data/actions.js";
-
+import formMutations from "@/store/data/mutations.js";
+import formActions from "@/store/data/actions.js";
+import formGetters from "@/store/data/getters.js";
 export default {
   namespaced: true,
   state() {
@@ -24,6 +24,7 @@ export default {
       tell_us_your_opinion_about_us: "",
     };
   },
-  mutations: dataMutations,
-  actions: dataActions,
+  mutations: formMutations,
+  actions: formActions,
+  getters: formGetters,
 };

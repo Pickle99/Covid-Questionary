@@ -9,7 +9,7 @@
       class="border-2 border-black px-4 py-2"
       :name="name"
       :type="type"
-      :value="this.$store.state.dataModule[name]"
+      :value="this.$store.state.formData[name]"
       :rules="rules"
       :placeholder="placeholder"
       @input="updateData(name, $event.target.value)"
@@ -21,14 +21,10 @@
 
 <script>
 import { Field, ErrorMessage } from "vee-validate";
-import { mapState } from "vuex";
 export default {
   components: {
     Field,
     ErrorMessage,
-  },
-  computed: {
-    ...mapState("dataModule", ["first_name"]),
   },
   props: {
     name: {
@@ -54,7 +50,7 @@ export default {
   },
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("dataModule/updateField", {
+      this.$store.dispatch("formData/updateField", {
         fieldName,
         updatedValue,
       });
