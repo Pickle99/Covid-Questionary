@@ -1,5 +1,5 @@
 export default {
-  updateField({ commit }, { data, fieldName, updatedValue }) {
-    commit("updateField", { data, fieldName, updatedValue });
+  updateField(context, data, fieldName, updatedValue) {
+    context.commit("updateField", data, fieldName, updatedValue);
   },
 };
