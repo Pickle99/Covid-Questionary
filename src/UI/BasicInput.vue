@@ -9,7 +9,7 @@
       class="border-2 border-black px-4 py-2"
       :name="name"
       :type="type"
-      :value="value"
+      :value="this.$store.state.dataModule[name]"
       :rules="rules"
       :placeholder="placeholder"
       @input="updateData(name, $event.target.value)"
@@ -28,7 +28,7 @@ export default {
     ErrorMessage,
   },
   computed: {
-    ...mapState("dataModule", ["data"]),
+    ...mapState("dataModule", ["first_name"]),
   },
   props: {
     name: {
@@ -38,11 +38,6 @@ export default {
     type: {
       type: String,
       required: true,
-    },
-    value: {
-      type: String,
-      required: true,
-      default: "",
     },
     rules: {
       type: String,
@@ -60,7 +55,6 @@ export default {
   methods: {
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("dataModule/updateField", {
-        data: this.data,
         fieldName,
         updatedValue,
       });

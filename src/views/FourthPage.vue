@@ -64,7 +64,7 @@
                 name="what_about_meetings_in_live"
                 type="text"
                 class="my-3 lg:w-[38rem] lg:h-[10rem] border-black border-2 mob:w-80 mob:h-24"
-                :value="data.what_about_meetings_in_live"
+                :value="what_about_meetings_in_live"
                 @input="
                   updateData('what_about_meetings_in_live', $event.target.value)
                 "
@@ -79,7 +79,7 @@
                 name="tell_us_your_opinion_about_us"
                 type="text"
                 class="my-3 lg:w-[38rem] lg:h-[10rem] border-black border-2 mob:w-80 mob:h-24"
-                :value="data.tell_us_your_opinion_about_us"
+                :value="tell_us_your_opinion_about_us"
                 @input="
                   updateData(
                     'tell_us_your_opinion_about_us',
@@ -133,7 +133,6 @@ export default {
     },
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("dataModule/updateField", {
-        data: this.data,
         fieldName,
         updatedValue,
       });
@@ -147,7 +146,10 @@ export default {
     RadioInput,
   },
   computed: {
-    ...mapState("dataModule", ["data"]),
+    ...mapState("dataModule", [
+      "what_about_meetings_in_live",
+      "tell_us_your_opinion_about_us",
+    ]),
   },
   data() {
     return {

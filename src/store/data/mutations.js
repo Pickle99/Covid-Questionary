@@ -1,7 +1,7 @@
 export default {
-  updateField(state, { data, fieldName, updatedValue }) {
+  updateField(state, { fieldName, updatedValue }) {
     if (fieldName === "test_date" || fieldName === "number") {
-      data.antibodies[fieldName] = updatedValue;
-    } else data[fieldName] = updatedValue;
+      state.antibodies[fieldName] = updatedValue;
+    } else state[fieldName] = updatedValue;
   },
 };

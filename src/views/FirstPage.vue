@@ -17,7 +17,7 @@ export default {
     },
   },
   computed: {
-    ...mapState("dataModule", ["data"]),
+    ...mapState("dataModule", ["first_name"]),
   },
 
   data() {
@@ -27,7 +27,6 @@ export default {
           id: "first_name",
           name: "first_name",
           type: "text",
-          value: this.first_name,
           rules: "required|min:2",
           placeholder: "იოსებ",
           label: "სახელი*",
@@ -65,7 +64,6 @@ export default {
           v-for="option in options"
           :name="option.name"
           :type="option.type"
-          :value="option.value"
           :rules="option.rules"
           :placeholder="option.placeholder"
           :label="option.label"
