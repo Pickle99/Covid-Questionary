@@ -1,14 +1,6 @@
 # Look Around
 
 The covid questionnaire is an application that new Redbury employees must fill out to understand what their attitude is to the covid situation and how Redbury can improve and contribute to the company's internal covid policy.
-The questionnaire consists of 6 pages:
-1.Questionnaire home page
-2.Personal information
-3.Developer covid-situation
-4.Are you vaccinated or not?
-5.Preferred covid-policy in the company
-6.Thank you page
-
 
 This template below should help get you started developing with Vue 3 in Vite.
 
