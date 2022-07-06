@@ -105,14 +105,14 @@
           </div>
         </div>
         <div class="lg:-mt-48 mob:hidden">
-          <img width="2300" src="@/components/images/rider.png" alt="img" />
+          <img width="2300" src="@/assets/images/rider.png" alt="img" />
         </div>
       </div>
     </div>
   </Form>
   <div class="flex justify-center mb-40 mt-40" type="submit">
     <button @click="back">
-      <img src="@/components/images/left.png" />
+      <img src="@/assets/icons/arrow-left.svg" />
     </button>
   </div>
 </template>

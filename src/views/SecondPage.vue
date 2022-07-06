@@ -83,12 +83,12 @@ export default {
         <AntiBodyInput v-if="this.$store.state.booleans.showAntiBody" />
       </form>
       <div class="ml-96 mob:hidden">
-        <img width="700" src="@/components/images/human2.png" alt="img" />
+        <img width="700" src="@/assets/images/human2.png" alt="img" />
       </div>
     </div>
     <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
       <button @click="back">
-        <img src="@/components/images/left.png" />
+        <img src="@/assets/icons/arrow-left.svg" />
       </button>
       <right-button
         :onClick="onSubmit"

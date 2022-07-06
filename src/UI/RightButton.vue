@@ -1,6 +1,6 @@
 <template>
   <button @click="onClick" :disabled="isDisabled" :class="class">
-    <img src="@/components/images/right.png" />
+    <img src="@/assets/icons/arrow-right.svg" />
   </button>
 </template>
 
