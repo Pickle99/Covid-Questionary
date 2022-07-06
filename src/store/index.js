@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
-import rootGetters from "./getters";
-import rootMutations from "./mutations";
-import rootActions from "./actions";
-import inputData from "./data/index";
+import inputData from "@/store/data/index.js";
+import rootGetters from "@/store/getters.js";
+import rootMutations from "@/store/mutations.js";
+import rootActions from "@/store/actions.js";
 
 const store = createStore({
   modules: {

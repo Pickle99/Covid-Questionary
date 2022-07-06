@@ -1,5 +1,5 @@
-import dataMutations from "./mutations";
-import dataActions from "./actions";
+import dataMutations from "@/store/data/mutations.js";
+import dataActions from "@/store/data/actions.js";
 
 export default {
   namespaced: true,
