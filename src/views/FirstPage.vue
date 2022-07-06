@@ -13,7 +13,6 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$store.state.count++;
       this.$router.push({ name: "second" });
     },
   },
@@ -58,7 +57,7 @@ export default {
 </script>
 <template>
   <Form as="div" class="lg:mx-52" v-slot="{ meta }">
-    <RedberryHeader />
+    <RedberryHeader :page="1" />
     <div class="mt-10 flex">
       <form>
         <basic-input

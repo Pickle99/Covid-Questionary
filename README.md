@@ -4,9 +4,10 @@ The covid questionnaire is an application that new Redbury employees must fill o
 
 This template below should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+## Integrate eslint & prettier
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Redberry documentation for installation:
+https://redberry.gitbook.io/resources/vue.js/eslint-and-prettier-is-gamartva-vue.js-proektshi
 
 ## Customize configuration
 

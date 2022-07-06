@@ -60,7 +60,7 @@ export default {
 
 <template>
   <Form as="div" class="lg:mx-52" v-slot="{ meta }">
-    <RedberryHeader />
+    <RedberryHeader :page="2" />
     <div class="flex mob:justify-center mob:mx-10">
       <form>
         <div class="flex flex-col mt-5">

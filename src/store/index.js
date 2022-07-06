@@ -10,7 +10,6 @@ const store = createStore({
   },
   state() {
     return {
-      count: 1,
       booleans: {
         showCovidDate: false,
         showAntiBody: false,

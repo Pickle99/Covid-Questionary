@@ -1,6 +1,6 @@
 <template>
   <Form as="div" v-slot="{ meta }" class="lg:mx-52">
-    <RedberryHeader />
+    <RedberryHeader :page="4" />
     <div class="mob:flex mob:flex-col mob:justify-center mob:w-full">
       <div class="lg:w-[30rem]">
         <p class="mt-8 mob:text-sm mob:text-center">

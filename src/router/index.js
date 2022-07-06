@@ -9,22 +9,22 @@ const router = createRouter({
       component: () => import("../views/HomeView.vue"),
     },
     {
-      path: "/1",
+      path: "/questions/1",
       name: "first",
       component: () => import("../views/FirstPage.vue"),
     },
     {
-      path: "/2",
+      path: "/questions/2",
       name: "second",
       component: () => import("../views/SecondPage.vue"),
     },
     {
-      path: "/3",
+      path: "/questions/3",
       name: "third",
       component: () => import("../views/ThirdPage.vue"),
     },
     {
-      path: "/4",
+      path: "/questions/4",
       name: "fourth",
       component: () => import("../views/FourthPage.vue"),
     },
