@@ -1,26 +1,26 @@
 export default {
-  testDateGetter(state) {
+  testDate(state) {
     return state.antibodies.test_date || "წწ-თთ-დდ";
   },
-  numberGetter(state) {
+  number(state) {
     return state.antibodies.number || undefined;
   },
-  covidSicknessGetter(state) {
+  covidSickness(state) {
     return state.covid_sickness_date || "წწ-თთ-დდ";
   },
-  vaccinationStageGetter(state) {
+  vaccinationStage(state) {
     return state.vaccination_stage || undefined;
   },
-  waitingGetter(state) {
+  waiting(state) {
     return state.i_am_waiting || undefined;
   },
-  meetingsGetter(state) {
+  meetings(state) {
     return state.what_about_meetings_in_live || undefined;
   },
-  opinionGetter(state) {
+  opinion(state) {
     return state.tell_us_your_opinion_about_us || undefined;
   },
-  antibodyTestGetter(state) {
+  antibodyTest(state) {
     if (state.had_antibody_test === "true") {
       return true;
     } else if (state.had_antibody_test === "false") {
@@ -28,7 +28,7 @@ export default {
     }
     return undefined;
   },
-  hadVaccineGetter(state) {
+  hadVaccine(state) {
     if (state.had_vaccine === "true") {
       return true;
     } else if (state.had_vaccine === "false") {
@@ -36,7 +36,7 @@ export default {
     }
     return undefined;
   },
-  daysFromOfficeGetter(state) {
+  daysFromOffice(state) {
     return state.number_of_days_from_office;
   },
 };

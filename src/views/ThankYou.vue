@@ -17,20 +17,19 @@ export default {
         last_name: this.last_name,
         email: this.email,
         had_covid: this.had_covid,
-        had_vaccine: this.hadVaccineGetter,
-        i_am_waiting: this.waitingGetter,
+        had_vaccine: this.hadVaccine,
+        i_am_waiting: this.waiting,
         antibodies: {
           test_date: this.testDateCorrectReturn,
-          number: parseInt(this.numberGetter) || undefined,
+          number: parseInt(this.number) || undefined,
         },
         covid_sickness_date: this.covidDateCorrectReturn,
-        had_antibody_test: this.antibodyTestGetter,
-        vaccination_stage: this.vaccinationStageGetter,
+        had_antibody_test: this.antibodyTest,
+        vaccination_stage: this.vaccinationStage,
         non_formal_meetings: this.non_formal_meetings,
-        number_of_days_from_office:
-          parseInt(this.daysFromOfficeGetter) || undefined,
-        what_about_meetings_in_live: this.meetingsGetter,
-        tell_us_your_opinion_about_us: this.opinionGetter,
+        number_of_days_from_office: parseInt(this.daysFromOffice) || undefined,
+        what_about_meetings_in_live: this.meetings,
+        tell_us_your_opinion_about_us: this.opinion,
       };
       axios
         .post("https://covid19.devtest.ge/api/create", obj)
@@ -41,14 +40,14 @@ export default {
   },
   computed: {
     testDateCorrectReturn() {
-      if (this.testDateGetter === "წწ-თთ-დდ") {
+      if (this.testDate === "წწ-თთ-დდ") {
         return undefined;
-      } else return this.testDateGetter.replace(/-/g, "/");
+      } else return this.testDate.replace(/-/g, "/");
     },
     covidDateCorrectReturn() {
-      if (this.covidSicknessGetter === "წწ-თთ-დდ") {
+      if (this.covidSickness === "წწ-თთ-დდ") {
         return undefined;
-      } else return this.covidSicknessGetter.replace(/-/g, "/");
+      } else return this.covidSickness.replace(/-/g, "/");
     },
     ...mapState("formData", [
       "first_name",
@@ -58,16 +57,16 @@ export default {
       "non_formal_meetings",
     ]),
     ...mapGetters("formData", [
-      "covidSicknessGetter",
-      "testDateGetter",
-      "numberGetter",
-      "vaccinationStageGetter",
-      "waitingGetter",
-      "meetingsGetter",
-      "opinionGetter",
-      "antibodyTestGetter",
-      "hadVaccineGetter",
-      "daysFromOfficeGetter",
+      "covidSickness",
+      "testDate",
+      "number",
+      "vaccinationStage",
+      "waiting",
+      "meetings",
+      "opinion",
+      "antibodyTest",
+      "hadVaccine",
+      "daysFromOffice",
     ]),
   },
   mounted() {
