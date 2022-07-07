@@ -6,32 +6,32 @@ const router = createRouter({
     {
       path: "/",
       name: "start",
-      component: () => import("../views/HomeView.vue"),
+      component: () => import("@/views/HomeView.vue"),
     },
     {
       path: "/questions/1",
       name: "first",
-      component: () => import("../views/FirstPage.vue"),
+      component: () => import("@/views/FirstPage.vue"),
     },
     {
       path: "/questions/2",
       name: "second",
-      component: () => import("../views/SecondPage.vue"),
+      component: () => import("@/views/SecondPage.vue"),
     },
     {
       path: "/questions/3",
       name: "third",
-      component: () => import("../views/ThirdPage.vue"),
+      component: () => import("@/views/ThirdPage.vue"),
     },
     {
       path: "/questions/4",
       name: "fourth",
-      component: () => import("../views/FourthPage.vue"),
+      component: () => import("@/views/FourthPage.vue"),
     },
     {
       path: "/success",
       name: "success",
-      component: () => import("../views/ThankYou.vue"),
+      component: () => import("@/views/ThankYou.vue"),
     },
   ],
 });
