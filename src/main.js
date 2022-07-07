@@ -1,10 +1,10 @@
 import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store/index";
-import "./index.css";
-import "./config/vee-validate/rules";
-import "./config/vee-validate/messages";
+import App from "@/App.vue";
+import router from "@/router/index.js";
+import store from "@/store/index.js";
+import "@/index.css";
+import "@/config/vee-validate/rules.js";
+import "@/config/vee-validate/messages.js";
 
 const app = createApp(App);
 

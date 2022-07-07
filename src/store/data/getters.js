@@ -17,7 +17,6 @@ export default {
   meetingsGetter(state) {
     return state.what_about_meetings_in_live || undefined;
   },
-
   opinionGetter(state) {
     return state.tell_us_your_opinion_about_us || undefined;
   },
