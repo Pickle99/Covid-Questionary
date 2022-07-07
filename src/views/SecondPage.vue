@@ -3,7 +3,7 @@ import { ErrorMessage, Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import AntiBodyInput from "@/components/AntiBodyInput.vue";
 import RightButton from "@/UI/RightButton.vue";
-import { mapActions } from "vuex";
+import { mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
 export default {
   methods: {
@@ -15,7 +15,14 @@ export default {
       this.$store.state.count++;
       this.$router.push({ name: "third" });
     },
-    ...mapActions(["hideAllAdditionalInputs", "showAntiBodyInputs"]),
+  },
+  computed: {
+    ...mapState("formData", [
+      "covid_sickness_date",
+      "antibodies",
+      "had_antibody_test",
+      "had_covid",
+    ]),
   },
   components: {
     RedberryHeader,
@@ -33,21 +40,18 @@ export default {
           name: "had_covid",
           value: "yes",
           label: "კი",
-          click: this.showAntiBodyInputs,
         },
         {
           id: "2",
           name: "had_covid",
           value: "no",
           label: "არა",
-          click: this.hideAllAdditionalInputs,
         },
         {
           id: "3",
           name: "had_covid",
           value: "have_right_now",
           label: "ახლა მაქვს",
-          click: this.hideAllAdditionalInputs,
         },
       ],
     };
@@ -77,7 +81,7 @@ export default {
           />
           <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="had_covid" />
         </div>
-        <AntiBodyInput v-if="this.$store.state.booleans.showAntiBody" />
+        <AntiBodyInput v-if="had_covid === 'yes'" />
       </form>
       <div class="ml-96 mob:hidden">
         <img width="700" src="@/assets/images/human2.png" alt="img" />

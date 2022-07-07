@@ -40,7 +40,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["hideAllAdditionalInputs"]),
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("formData/updateField", {
         fieldName,

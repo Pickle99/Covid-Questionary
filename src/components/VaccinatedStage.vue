@@ -15,7 +15,7 @@
   </div>
   <div
     class="flex flex-col mt-10 ml-10"
-    v-if="this.$store.state.booleans.showLink"
+    v-if="vaccination_stage === 'first_dosage_and_not_registered_yet'"
   >
     <h1 class="font-semibold">
       რომ არ გადადო,
@@ -25,24 +25,17 @@
       >https://booking.moh.gov.ge/</a
     >
   </div>
-  <div
-    v-if="this.$store.state.booleans.showCovidInfoLink"
-    class="mt-10 ml-10 font-bold"
-  >
-    👉
-    <a class="text-blue-500" href="https://booking.moh.gov.ge/"
-      >https://booking.moh.gov.ge/</a
-    >
-  </div>
 </template>
 
 <script>
 import { ErrorMessage } from "vee-validate";
-import { mapActions } from "vuex";
+import {  mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
 export default {
+  computed: {
+    ...mapState("formData", ["vaccination_stage"]),
+  },
   methods: {
-    ...mapActions(["showLink", "hideLink"]),
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("formData/updateField", {
         fieldName,
@@ -62,21 +55,18 @@ export default {
           name: "vaccination_stage",
           value: "first_dosage_and_registered_on_the_second",
           label: "პირველი დოზა და დარეგისტრირებული ვარ მეორეზე",
-          click: this.hideLink,
         },
         {
           id: "2",
           name: "vaccination_stage",
           value: "fully_vaccinated",
           label: "სრულად აცრილი ვარ",
-          click: this.hideLink,
         },
         {
           id: "3",
           name: "vaccination_stage",
           value: "first_dosage_and_not_registered_yet",
           label: "პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე",
-          click: this.showLink,
         },
       ],
     };

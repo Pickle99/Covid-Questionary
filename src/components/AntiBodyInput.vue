@@ -11,7 +11,6 @@
           value="true"
           type="radio"
           rules="required_boolean"
-          @click="showAdditionalInputs"
           @input="updateData('had_antibody_test', $event.target.value)"
         />
         <label class="ml-5" for="had_antibody_test">კი</label>
@@ -24,7 +23,6 @@
           type="radio"
           value="false"
           rules="required_boolean"
-          @click="hideAdditionalInputs"
           @input="updateData('had_antibody_test', $event.target.value)"
         />
         <label class="ml-5" for="had_antibody_test">არა</label>
@@ -32,13 +30,13 @@
       <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="had_antibody_test" />
     </div>
   </div>
-  <CovidDateInput v-if="this.$store.state.booleans.showCovidDate" />
-  <HadAntiBody v-if="this.$store.state.booleans.showAntiInputs" />
+  <CovidDateInput v-if="had_antibody_test === 'false'" />
+  <HadAntiBody v-if="had_antibody_test === 'true'" />
 </template>
 
 <script>
 import { Field, ErrorMessage } from "vee-validate";
-import { mapActions } from "vuex";
+import { mapState } from "vuex";
 import CovidDateInput from "@/components/CovidDateInput.vue";
 import HadAntiBody from "@/components/HadAntiBody.vue";
 export default {
@@ -48,8 +46,10 @@ export default {
     CovidDateInput,
     HadAntiBody,
   },
+  computed: {
+    ...mapState("formData", ["had_antibody_test"]),
+  },
   methods: {
-    ...mapActions(["showAdditionalInputs", "hideAdditionalInputs"]),
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("formData/updateField", {
         fieldName,

@@ -22,10 +22,8 @@
               />
             </div>
           </div>
-          <VaccinatedStage v-if="this.$store.state.booleans.showStage" />
-          <VaccinationStageTwo
-            v-if="this.$store.state.booleans.showWaitingInfo"
-          />
+          <VaccinatedStage v-if="had_vaccine === 'true'" />
+          <VaccinationStageTwo v-if="had_vaccine === 'false'" />
         </form>
       </div>
       <div class="mob:hidden">
@@ -49,21 +47,15 @@
 import { Form, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import RadioInput from "@/UI/RadioInput.vue";
-import { mapActions, mapState } from "vuex";
+import {  mapState } from "vuex";
 import VaccinatedStage from "@/components/VaccinatedStage.vue";
 import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
 import RightButton from "@/UI/RightButton.vue";
 export default {
   computed: {
-    ...mapState("formData", ["data"]),
+    ...mapState("formData", ["had_vaccine"]),
   },
   methods: {
-    ...mapActions([
-      "showStageInputs",
-      "showCovidInfo",
-      "hideCovidInfo",
-      "hideAllCovidInfo",
-    ]),
     back() {
       this.$router.push({ name: "second" });
       this.$store.state.count--;
@@ -90,14 +82,12 @@ export default {
           name: "had_vaccine",
           value: "true",
           label: "კი",
-          click: this.showStageInputs,
         },
         {
           id: "2",
           name: "had_vaccine",
           value: "false",
           label: "არა",
-          click: this.hideAllCovidInfo,
         },
       ],
     };
