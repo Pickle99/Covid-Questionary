@@ -46,7 +46,7 @@ import RightButton from "@/UI/RightButton.vue";
 import LeftButton from "@/UI/LeftButton.vue";
 export default {
   computed: {
-    ...mapState("formData", ["had_vaccine"]),
+    ...mapState(["had_vaccine"]),
   },
   methods: {
     back() {

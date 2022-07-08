@@ -182,7 +182,7 @@ export default {
       console.log(this.allData);
     },
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("formData/updateField", {
+      this.$store.dispatch("updateField", {
         fieldName,
         updatedValue,
       });
@@ -197,11 +197,11 @@ export default {
     RadioInput,
   },
   computed: {
-    ...mapState("formData", [
+    ...mapState([
       "what_about_meetings_in_live",
       "tell_us_your_opinion_about_us",
     ]),
-    ...mapGetters("formData", ["allData"]),
+    ...mapGetters(["allData"]),
   },
 };
 </script>

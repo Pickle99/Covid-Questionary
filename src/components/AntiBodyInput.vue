@@ -47,11 +47,11 @@ export default {
     HadAntiBody,
   },
   computed: {
-    ...mapState("formData", ["had_antibody_test"]),
+    ...mapState(["had_antibody_test"]),
   },
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("formData/updateField", {
+      this.$store.dispatch("updateField", {
         fieldName,
         updatedValue,
       });

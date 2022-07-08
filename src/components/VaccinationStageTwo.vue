@@ -39,7 +39,7 @@ import RadioInput from "@/UI/RadioInput.vue";
 export default {
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("formData/updateField", {
+      this.$store.dispatch("updateField", {
         fieldName,
         updatedValue,
       });
@@ -51,7 +51,7 @@ export default {
     RadioInput,
   },
   computed: {
-    ...mapState("formData", ["i_am_waiting"]),
+    ...mapState(["i_am_waiting"]),
   },
 };
 </script>

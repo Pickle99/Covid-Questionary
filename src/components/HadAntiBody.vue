@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("formData/updateField", {
+      this.$store.dispatch("updateField", {
         data: this.data,
         fieldName,
         updatedValue,
@@ -47,7 +47,7 @@ export default {
     },
   },
   computed: {
-    ...mapState("formData", ["antibodies"]),
+    ...mapState(["antibodies"]),
   },
 };
 </script>

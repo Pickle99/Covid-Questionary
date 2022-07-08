@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("formData/updateField", {
+      this.$store.dispatch("updateField", {
         fieldName,
         updatedValue,
       });

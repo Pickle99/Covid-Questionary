@@ -18,7 +18,7 @@ export default {
     },
   },
   computed: {
-    ...mapState("formData", [
+    ...mapState([
       "covid_sickness_date",
       "antibodies",
       "had_antibody_test",

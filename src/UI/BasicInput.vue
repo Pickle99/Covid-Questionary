@@ -9,7 +9,7 @@
       class="border-2 border-black px-4 py-2"
       :name="name"
       :type="type"
-      :value="this.$store.state.formData[name]"
+      :value="this.$store.state[name]"
       :rules="rules"
       :placeholder="placeholder"
       @input="updateData(name, $event.target.value)"
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("formData/updateField", {
+      this.$store.dispatch("updateField", {
         fieldName,
         updatedValue,
       });

@@ -17,7 +17,7 @@ export default {
     },
   },
   computed: {
-    ...mapState("formData", ["first_name"]),
+    ...mapState(["first_name"]),
   },
 };
 </script>

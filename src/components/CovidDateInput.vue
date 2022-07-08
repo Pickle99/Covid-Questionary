@@ -32,14 +32,14 @@ export default {
   },
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("formData/updateField", {
+      this.$store.dispatch("updateField", {
         fieldName,
         updatedValue,
       });
     },
   },
   computed: {
-    ...mapState("formData", ["covid_sickness_date"]),
+    ...mapState(["covid_sickness_date"]),
   },
 };
 </script>

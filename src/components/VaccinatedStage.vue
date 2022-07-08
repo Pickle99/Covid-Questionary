@@ -40,11 +40,11 @@ import { mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
 export default {
   computed: {
-    ...mapState("formData", ["vaccination_stage"]),
+    ...mapState(["vaccination_stage"]),
   },
   methods: {
     updateData(fieldName, updatedValue) {
-      this.$store.dispatch("formData/updateField", {
+      this.$store.dispatch("updateField", {
         fieldName,
         updatedValue,
       });
