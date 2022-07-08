@@ -8,14 +8,8 @@
           <div class="flex flex-col mt-10 justify-center">
             <h1 class="font-extrabold text-xl mb-3">უკვე აცრილი ხარ?*</h1>
             <div class="flex flex-col ml-5">
-              <radio-input
-                :key="option.id"
-                v-for="option in options"
-                :name="option.name"
-                :value="option.value"
-                :label="option.label"
-                :click="option.click"
-              />
+              <radio-input name="had_vaccine" value="true" label="კი" />
+              <radio-input name="had_vaccine" value="false" label="არა" />
               <ErrorMessage
                 class="ml-5 mt-1 text-[#F15524]"
                 name="had_vaccine"
@@ -73,24 +67,6 @@ export default {
     ErrorMessage,
     RightButton,
     RadioInput,
-  },
-  data() {
-    return {
-      options: [
-        {
-          id: "1",
-          name: "had_vaccine",
-          value: "true",
-          label: "კი",
-        },
-        {
-          id: "2",
-          name: "had_vaccine",
-          value: "false",
-          label: "არა",
-        },
-      ],
-    };
   },
 };
 </script>

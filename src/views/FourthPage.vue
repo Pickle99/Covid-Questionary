@@ -24,11 +24,24 @@
               </h1>
               <div class="flex flex-col ml-5">
                 <radio-input
-                  :key="option.id"
-                  v-for="option in options"
-                  :name="option.name"
-                  :value="option.value"
-                  :label="option.label"
+                  name="non_formal_meetings"
+                  value="twice_a_week"
+                  label="კვირაში ორჯერ"
+                />
+                <radio-input
+                  name="non_formal_meetings"
+                  value="once_a_week"
+                  label="კვირაში ერთხელ"
+                />
+                <radio-input
+                  name="non_formal_meetings"
+                  value="once_in_a_two_weeks"
+                  label="ორ კვირაში ერთხელ"
+                />
+                <radio-input
+                  name="non_formal_meetings"
+                  value="once_in_a_month"
+                  label="თვეში ერთხელ"
                 />
 
                 <ErrorMessage
@@ -43,11 +56,34 @@
               </h1>
               <div class="flex flex-col ml-5">
                 <radio-input
-                  :key="optionSecond.id"
-                  v-for="optionSecond in optionsAnother"
-                  :name="optionSecond.name"
-                  :value="optionSecond.value"
-                  :label="optionSecond.label"
+                  name="number_of_days_from_office"
+                  value="0"
+                  label="0"
+                />
+                <radio-input
+                  name="number_of_days_from_office"
+                  value="1"
+                  label="1"
+                />
+                <radio-input
+                  name="number_of_days_from_office"
+                  value="2"
+                  label="2"
+                />
+                <radio-input
+                  name="number_of_days_from_office"
+                  value="3"
+                  label="3"
+                />
+                <radio-input
+                  name="number_of_days_from_office"
+                  value="4"
+                  label="4"
+                />
+                <radio-input
+                  name="number_of_days_from_office"
+                  value="5"
+                  label="5"
                 />
                 <ErrorMessage
                   class="ml-5 mt-1 text-[#F15524]"
@@ -157,74 +193,6 @@ export default {
     ]),
 
     ...mapGetters("formData", ["allData"]),
-  },
-  data() {
-    return {
-      options: [
-        {
-          id: "1",
-          name: "non_formal_meetings",
-          value: "twice_a_week",
-          label: "კვირაში ორჯერ",
-        },
-        {
-          id: "2",
-          name: "non_formal_meetings",
-          value: "once_a_week",
-          label: "კვირაში ერთხელ",
-        },
-        {
-          id: "3",
-          name: "non_formal_meetings",
-          value: "once_in_a_two_weeks",
-          label: "ორ კვირაში ერთხელ",
-        },
-        {
-          id: "4",
-          name: "non_formal_meetings",
-          value: "once_in_a_month",
-          label: "თვეში ერთხელ",
-        },
-      ],
-      optionsAnother: [
-        {
-          id: "1",
-          name: "number_of_days_from_office",
-          value: "0",
-          label: "0",
-        },
-        {
-          id: "2",
-          name: "number_of_days_from_office",
-          value: "1",
-          label: "1",
-        },
-        {
-          id: "3",
-          name: "number_of_days_from_office",
-          value: "2",
-          label: "2",
-        },
-        {
-          id: "4",
-          name: "number_of_days_from_office",
-          value: "3",
-          label: "3",
-        },
-        {
-          id: "5",
-          name: "number_of_days_from_office",
-          value: "4",
-          label: "4",
-        },
-        {
-          id: "6",
-          name: "number_of_days_from_office",
-          value: "5",
-          label: "5",
-        },
-      ],
-    };
   },
 };
 </script>

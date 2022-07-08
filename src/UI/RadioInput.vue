@@ -15,7 +15,7 @@
 
 <script>
 import { Field } from "vee-validate";
-import { mapActions } from "vuex";
+
 export default {
   components: {
     Field,

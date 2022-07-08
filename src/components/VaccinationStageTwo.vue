@@ -3,12 +3,19 @@
     <h1 class="font-extrabold text-xl mb-3">რას ელოდები?*</h1>
     <div class="flex flex-col ml-5">
       <radio-input
-        :key="option.id"
-        v-for="option in options"
-        :name="option.name"
-        :value="option.value"
-        :label="option.label"
-        :click="option.click"
+        name="i_am_waiting"
+        value="registered_and_waiting"
+        label="დარეგისტრირებული ვარ და ველოდები რიცხვს"
+      />
+      <radio-input
+        name="i_am_waiting"
+        value="not_planning"
+        label="არ ვგეგმავ"
+      />
+      <radio-input
+        name="i_am_waiting"
+        value="had_covid_and_planning_to_be_vaccinated"
+        label="გადატანილი მაქვს და ვგეგმავ აცრას"
       />
       <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="i_am_waiting" />
     </div>
@@ -45,30 +52,6 @@ export default {
   },
   computed: {
     ...mapState("formData", ["i_am_waiting"]),
-  },
-  data() {
-    return {
-      options: [
-        {
-          id: "1",
-          name: "i_am_waiting",
-          value: "registered_and_waiting",
-          label: "დარეგისტრირებული ვარ და ველოდები რიცხვს",
-        },
-        {
-          id: "2",
-          name: "i_am_waiting",
-          value: "not_planning",
-          label: "არ ვგეგმავ",
-        },
-        {
-          id: "3",
-          name: "i_am_waiting",
-          value: "had_covid_and_planning_to_be_vaccinated",
-          label: "გადატანილი მაქვს და ვგეგმავ აცრას",
-        },
-      ],
-    };
   },
 };
 </script>

@@ -19,39 +19,6 @@ export default {
   computed: {
     ...mapState("formData", ["first_name"]),
   },
-
-  data() {
-    return {
-      options: [
-        {
-          id: "first_name",
-          name: "first_name",
-          type: "text",
-          rules: "required|min:2",
-          placeholder: "იოსებ",
-          label: "სახელი*",
-        },
-        {
-          id: "last_name",
-          name: "last_name",
-          type: "text",
-          value: this.last_name,
-          rules: "required|min:2",
-          placeholder: "ჯუღაშვილი",
-          label: "გვარი*",
-        },
-        {
-          id: "email",
-          name: "email",
-          type: "text",
-          value: this.email,
-          rules: "required|redberry",
-          placeholder: "fbi@redberry.ge",
-          label: "მეილი*",
-        },
-      ],
-    };
-  },
 };
 </script>
 <template>
@@ -60,13 +27,25 @@ export default {
     <div class="mt-10 flex">
       <form>
         <basic-input
-          :key="option.id"
-          v-for="option in options"
-          :name="option.name"
-          :type="option.type"
-          :rules="option.rules"
-          :placeholder="option.placeholder"
-          :label="option.label"
+          name="first_name"
+          type="text"
+          rules="required|min:2"
+          placeholder="იოსებ"
+          label="სახელი*"
+        />
+        <basic-input
+          name="last_name"
+          type="text"
+          rules="required|min:2"
+          placeholder="ჯუღაშვილი"
+          label="გვარი*"
+        />
+        <basic-input
+          name="email"
+          type="text"
+          rules="required|redberry"
+          placeholder="fbi@redberry.ge"
+          label="მეილი*"
         />
         <footer class="lg:mt-32 text-[#623123] lg:mr-72 mob:mt-20 mob:mx-10">
           <div class="border-black border-b-2"></div>

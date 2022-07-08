@@ -34,30 +34,6 @@ export default {
     RightButton,
     RadioInput,
   },
-  data() {
-    return {
-      options: [
-        {
-          id: "1",
-          name: "had_covid",
-          value: "yes",
-          label: "კი",
-        },
-        {
-          id: "2",
-          name: "had_covid",
-          value: "no",
-          label: "არა",
-        },
-        {
-          id: "3",
-          name: "had_covid",
-          value: "have_right_now",
-          label: "ახლა მაქვს",
-        },
-      ],
-    };
-  },
 };
 </script>
 
@@ -70,16 +46,12 @@ export default {
           <h1 class="font-extrabold text-xl mb-3">
             გაქვს გადატანილი Covid-19?
           </h1>
+          <radio-input name="had_covid" value="yes" label="კი" />
+          <radio-input name="had_covid" value="no" label="არა" />
           <radio-input
-            :key="option.id"
-            v-for="option in options"
-            :name="option.name"
-            :type="option.type"
-            :value="option.value"
-            :rules="option.rules"
-            :placeholder="option.placeholder"
-            :label="option.label"
-            :click="option.click"
+            name="had_covid"
+            value="have_right_now"
+            label="ახლა მაქვს"
           />
           <ErrorMessage class="ml-5 mt-1 text-[#F15524]" name="had_covid" />
         </div>
