@@ -179,7 +179,6 @@ export default {
           .post("https://covid19.devtest.ge/api/create", this.allData)
           .then(() => this.$router.push({ name: "success" }))
           .catch((error) => console.log(error));
-      console.log(this.allData);
     },
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("updateField", {
