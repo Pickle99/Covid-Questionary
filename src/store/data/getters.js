@@ -49,6 +49,7 @@ export default {
       return null;
     } else return getters.covidSickness.replace(/-/g, "/");
   },
+
   allData(state, getters) {
     return {
       first_name: state.first_name,

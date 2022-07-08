@@ -165,10 +165,20 @@ export default {
       this.$store.state.count--;
     },
     onSubmit() {
-      axios
-        .post("https://covid19.devtest.ge/api/create", this.allData)
-        .then(() => this.$router.push({ name: "success" }))
-        .catch((error) => console.log(error));
+      Object.keys(this.allData).forEach((key) => {
+        if (this.allData[key] === null) {
+          delete this.allData[key];
+        }
+      }),
+        Object.keys(this.allData.antibodies).forEach((key) => {
+          if (this.allData.antibodies[key] === null) {
+            delete this.allData.antibodies[key];
+          }
+        }),
+        axios
+          .post("https://covid19.devtest.ge/api/create", this.allData)
+          .then(() => this.$router.push({ name: "success" }))
+          .catch((error) => console.log(error));
       console.log(this.allData);
     },
     updateData(fieldName, updatedValue) {
@@ -191,7 +201,6 @@ export default {
       "what_about_meetings_in_live",
       "tell_us_your_opinion_about_us",
     ]),
-
     ...mapGetters("formData", ["allData"]),
   },
 };
