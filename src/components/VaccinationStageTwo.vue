@@ -37,18 +37,18 @@ import { mapState } from "vuex";
 import CovidAdditionalComment from "@/components/CovidAdditionalComment.vue";
 import RadioInput from "@/UI/RadioInput.vue";
 export default {
-  methods: {
-    updateData(fieldName, updatedValue) {
-      this.$store.dispatch("updateField", {
-        fieldName,
-        updatedValue,
-      });
-    },
-  },
   components: {
     ErrorMessage,
     CovidAdditionalComment,
     RadioInput,
+  },
+  methods: {
+    updateData(fieldName, updatedValue) {
+      this.$store.dispatch("updateField", {
+        fieldName,
+        updatedValue, 
+      });
+    },
   },
   computed: {
     ...mapState(["i_am_waiting"]),

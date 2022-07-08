@@ -1,5 +1,5 @@
 <template>
-  <Form as="div" v-slot="{ meta }" class="lg:mx-52">
+  <Form v-slot="{ meta }" as="div" class="lg:mx-52">
     <RedberryHeader :page="4" />
     <div class="mob:flex mob:flex-col mob:justify-center mob:w-full">
       <div class="lg:w-[30rem]">
@@ -128,13 +128,13 @@
           </form>
           <div class="flex justify-end">
             <button
-              @click="onSubmit"
               :class="
                 !meta.valid
                   ? 'opacity-40 rounded-3xl text-white bg-[#208298] px-6 py-3'
                   : 'opacity-100 rounded-3xl text-white bg-[#208298] px-6 py-3'
               "
               :disabled="!meta.valid"
+              @click="onSubmit"
             >
               დასრულება
             </button>
@@ -159,6 +159,14 @@ import RadioInput from "@/UI/RadioInput.vue";
 import LeftButton from "@/UI/LeftButton.vue";
 import axios from "axios";
 export default {
+  components: {
+    LeftButton,
+    RedberryHeader,
+    Form,
+    Field,
+    ErrorMessage,
+    RadioInput,
+  },
   methods: {
     back() {
       this.$router.push({ name: "third" });
@@ -176,14 +184,6 @@ export default {
         updatedValue,
       });
     },
-  },
-  components: {
-    LeftButton,
-    RedberryHeader,
-    Form,
-    Field,
-    ErrorMessage,
-    RadioInput,
   },
   computed: {
     ...mapState([

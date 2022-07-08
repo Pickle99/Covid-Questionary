@@ -1,5 +1,5 @@
 <template>
-  <Form as="div" v-slot="{ meta }" class="lg:mx-52">
+  <Form v-slot="{ meta }" as="div" class="lg:mx-52">
     <RedberryHeader :page="3" />
 
     <div class="flex">
@@ -27,11 +27,11 @@
     <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
       <left-button :back="back" />
       <right-button
-        :onClick="onSubmit"
-        :isDisabled="!meta.valid"
+        :on-click="onSubmit"
+        :is-disabled="!meta.valid"
         :class="!meta.valid ? 'opacity-40 lg:mx-40' : 'opacity-100 lg:mx-40'"
       />
-    </div>
+    </div> 
   </Form>
 </template>
 

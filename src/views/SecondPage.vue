@@ -36,9 +36,9 @@ export default {
   },
 };
 </script>
-
+ 
 <template>
-  <Form as="div" class="lg:mx-52" v-slot="{ meta }">
+  <Form v-slot="{ meta }" as="div" class="lg:mx-52">
     <RedberryHeader :page="2" />
     <div class="flex mob:justify-center mob:mx-10">
       <form>
@@ -64,8 +64,8 @@ export default {
     <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
       <left-button :back="back" />
       <right-button
-        :onClick="onSubmit"
-        :isDisabled="!meta.valid"
+        :on-click="onSubmit"
+        :is-disabled="!meta.valid"
         :class="!meta.valid ? 'opacity-40 lg:mx-40' : 'opacity-100 lg:mx-40'"
       />
     </div>

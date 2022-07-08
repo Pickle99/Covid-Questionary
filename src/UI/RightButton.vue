@@ -1,5 +1,5 @@
 <template>
-  <button @click="onClick" :disabled="isDisabled" :class="class">
+  <button :disabled="isDisabled" :class="class" @click="onClick">
     <img src="@/assets/icons/arrow-right.svg" />
   </button>
 </template>
@@ -9,7 +9,7 @@ export default {
   props: {
     onClick: {
       type: Function,
-      required: true,
+      required: true, 
     },
     isDisabled: {
       type: Boolean,

@@ -9,7 +9,7 @@
       class="border-2 border-black px-4 py-2"
       :name="name"
       :type="type"
-      :value="this.$store.state[name]"
+      :value="$store.state[name]"
       :rules="rules"
       :placeholder="placeholder"
       @input="updateData(name, $event.target.value)"
@@ -35,7 +35,7 @@ export default {
       type: String,
       required: true,
     },
-    rules: {
+    rules: { 
       type: String,
       required: true,
     },

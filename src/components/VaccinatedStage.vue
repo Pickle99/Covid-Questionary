@@ -21,8 +21,8 @@
     </div>
   </div>
   <div
-    class="flex flex-col mt-10 ml-10"
     v-if="vaccination_stage === 'first_dosage_and_not_registered_yet'"
+    class="flex flex-col mt-10 ml-10"
   >
     <h1 class="font-semibold">
       რომ არ გადადო,
@@ -49,7 +49,7 @@ export default {
         updatedValue,
       });
     },
-  },
+  }, 
   components: {
     ErrorMessage,
     RadioInput,
