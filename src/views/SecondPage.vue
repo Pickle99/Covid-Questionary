@@ -3,6 +3,7 @@ import { ErrorMessage, Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import AntiBodyInput from "@/components/AntiBodyInput.vue";
 import RightButton from "@/UI/RightButton.vue";
+import LeftButton from "@/UI/LeftButton.vue";
 import { mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
 export default {
@@ -25,6 +26,7 @@ export default {
     ]),
   },
   components: {
+    LeftButton,
     RedberryHeader,
     AntiBodyInput,
     Form,
@@ -88,9 +90,7 @@ export default {
       </div>
     </div>
     <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
-      <button @click="back">
-        <img src="@/assets/icons/arrow-left.svg" />
-      </button>
+      <left-button :back="back" />
       <right-button
         :onClick="onSubmit"
         :isDisabled="!meta.valid"

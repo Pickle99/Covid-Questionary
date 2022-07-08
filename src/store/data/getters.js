@@ -50,9 +50,6 @@ export default {
     } else return getters.covidSickness.replace(/-/g, "/");
   },
   allData(state, getters) {
-    if (!this.covidDateCorrectReturn) {
-      return delete getters.covidDateCorrectReturn["covid_sickness_date"];
-    }
     return {
       first_name: state.first_name,
       last_name: state.last_name,
@@ -64,7 +61,7 @@ export default {
         test_date: getters.testDateCorrectReturn,
         number: parseInt(getters.number) || null,
       },
-      covid_sickness_date: getters.covidDateCorrectReturn,
+      covid_sickness_date: getters.covidDateCorrectReturn || null,
       had_antibody_test: getters.antibodyTest,
       vaccination_stage: getters.vaccinationStage,
       non_formal_meetings: state.non_formal_meetings,

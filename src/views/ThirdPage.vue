@@ -31,9 +31,7 @@
       </div>
     </div>
     <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
-      <button @click="back">
-        <img src="@/assets/icons/arrow-left.svg" />
-      </button>
+      <left-button :back="back" />
       <right-button
         :onClick="onSubmit"
         :isDisabled="!meta.valid"
@@ -47,10 +45,11 @@
 import { Form, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import RadioInput from "@/UI/RadioInput.vue";
-import {  mapState } from "vuex";
+import { mapState } from "vuex";
 import VaccinatedStage from "@/components/VaccinatedStage.vue";
 import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
 import RightButton from "@/UI/RightButton.vue";
+import LeftButton from "@/UI/LeftButton.vue";
 export default {
   computed: {
     ...mapState("formData", ["had_vaccine"]),
@@ -66,6 +65,7 @@ export default {
     },
   },
   components: {
+    LeftButton,
     VaccinatedStage,
     RedberryHeader,
     VaccinationStageTwo,

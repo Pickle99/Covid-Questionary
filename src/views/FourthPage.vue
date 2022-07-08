@@ -111,9 +111,7 @@
     </div>
   </Form>
   <div class="flex justify-center mb-40 mt-40" type="submit">
-    <button @click="back">
-      <img src="@/assets/icons/arrow-left.svg" />
-    </button>
+    <left-button :back="back" />
   </div>
 </template>
 
@@ -122,6 +120,7 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import { mapGetters, mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
+import LeftButton from "@/UI/LeftButton.vue";
 import axios from "axios";
 export default {
   methods: {
@@ -144,6 +143,7 @@ export default {
     },
   },
   components: {
+    LeftButton,
     RedberryHeader,
     Form,
     Field,
