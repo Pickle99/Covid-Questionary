@@ -71,4 +71,19 @@ export default {
       tell_us_your_opinion_about_us: getters.opinion,
     };
   },
+
+  processedData(state, getters) {
+    const allDataObj = getters.allData;
+    Object.keys(allDataObj).forEach((key) => {
+      if (allDataObj[key] === null) {
+        delete allDataObj[key];
+      }
+    });
+    Object.keys(allDataObj.antibodies).forEach((key) => {
+      if (allDataObj.antibodies[key] === null) {
+        delete allDataObj.antibodies[key];
+      }
+    });
+    return allDataObj;
+  },
 };
