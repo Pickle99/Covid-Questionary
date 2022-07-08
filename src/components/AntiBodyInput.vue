@@ -10,7 +10,7 @@
           class="scale-125"
           value="true"
           type="radio"
-          rules="required_boolean"
+          rules="required"
           @input="updateData('had_antibody_test', $event.target.value)"
         />
         <label class="ml-5" for="had_antibody_test">კი</label>
@@ -22,7 +22,7 @@
           class="scale-125"
           type="radio"
           value="false"
-          rules="required_boolean"
+          rules="required"
           @input="updateData('had_antibody_test', $event.target.value)"
         />
         <label class="ml-5" for="had_antibody_test">არა</label>

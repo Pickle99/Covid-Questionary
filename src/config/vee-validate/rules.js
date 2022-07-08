@@ -11,9 +11,3 @@ defineRule("redberry", (value) => {
   }
   return true;
 });
-defineRule("required_boolean", (value) => {
-  if (value === "") {
-    return "აღნიშნული ველი სავალდებულოა";
-  }
-  return true;
-});

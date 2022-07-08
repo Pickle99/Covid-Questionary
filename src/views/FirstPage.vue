@@ -2,14 +2,14 @@
 import { Form } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import BasicInput from "@/UI/BasicInput.vue";
-import RightButton from "@/UI/RightButton.vue";
+import ArrowNavigation from "@/UI/ArrowNavigation.vue";
 import { mapState } from "vuex";
 export default {
   components: {
     RedberryHeader,
     Form,
     BasicInput,
-    RightButton,
+    ArrowNavigation,
   },
   methods: {
     onSubmit() {
@@ -59,11 +59,8 @@ export default {
       </div>
     </div>
     <div class="flex justify-center lg:mb-32 mob:my-10">
-      <right-button
-        :on-click="onSubmit"
-        :is-disabled="!meta.valid"
-        :class="!meta.valid ? 'opacity-40' : 'opacity-100'"
-      /> 
+      <arrow-navigation :previous-page="false"  :next-page="true"  :on-click="onSubmit" :is-disabled="!meta.valid"/>
+
     </div>
   </Form>
 </template>

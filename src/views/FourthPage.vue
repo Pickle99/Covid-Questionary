@@ -147,7 +147,8 @@
     </div>
   </Form>
   <div class="flex justify-center mb-40 mt-40" type="submit">
-    <left-button :back="back" />
+    <arrow-navigation :previous-page="true" :next-page="false"  :back="back" :on-click="onSubmit" :is-disabled="false"/>
+
   </div>
 </template>
 
@@ -156,11 +157,11 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
 import { mapGetters, mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
-import LeftButton from "@/UI/LeftButton.vue";
+import ArrowNavigation from '@/UI/ArrowNavigation.vue';
 import axios from "axios";
 export default {
   components: {
-    LeftButton,
+    ArrowNavigation,
     RedberryHeader,
     Form,
     Field,

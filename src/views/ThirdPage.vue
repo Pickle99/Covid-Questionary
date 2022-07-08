@@ -25,12 +25,7 @@
       </div>
     </div>
     <div class="mob:mt-10 flex justify-center mob:justify-between mob:mx-40">
-      <left-button :back="back" />
-      <right-button
-        :on-click="onSubmit"
-        :is-disabled="!meta.valid"
-        :class="!meta.valid ? 'opacity-40 lg:mx-40' : 'opacity-100 lg:mx-40'"
-      />
+      <arrow-navigation :previous-page="true" :next-page="true"  :back="back" :on-click="onSubmit" :is-disabled="!meta.valid"/>
     </div> 
   </Form>
 </template>
@@ -42,8 +37,7 @@ import RadioInput from "@/UI/RadioInput.vue";
 import { mapState } from "vuex";
 import VaccinatedStage from "@/components/VaccinatedStage.vue";
 import VaccinationStageTwo from "@/components/VaccinationStageTwo.vue";
-import RightButton from "@/UI/RightButton.vue";
-import LeftButton from "@/UI/LeftButton.vue";
+import ArrowNavigation from "@/UI/ArrowNavigation.vue";
 export default {
   computed: {
     ...mapState(["had_vaccine"]),
@@ -59,13 +53,12 @@ export default {
     },
   },
   components: {
-    LeftButton,
     VaccinatedStage,
     RedberryHeader,
     VaccinationStageTwo,
     Form,
     ErrorMessage,
-    RightButton,
+    ArrowNavigation,
     RadioInput,
   },
 };
