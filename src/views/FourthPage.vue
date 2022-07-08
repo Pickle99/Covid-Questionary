@@ -120,8 +120,9 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import RedberryHeader from "@/components/RedberryHeader.vue";
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import RadioInput from "@/UI/RadioInput.vue";
+import axios from "axios";
 export default {
   methods: {
     back() {
@@ -129,7 +130,11 @@ export default {
       this.$store.state.count--;
     },
     onSubmit() {
-      this.$router.push({ name: "success" });
+      axios
+        .post("https://covid19.devtest.ge/api/create", this.allData)
+        .then(() => this.$router.push({ name: "success" }))
+        .catch((error) => console.log(error));
+      console.log(this.allData);
     },
     updateData(fieldName, updatedValue) {
       this.$store.dispatch("formData/updateField", {
@@ -150,6 +155,8 @@ export default {
       "what_about_meetings_in_live",
       "tell_us_your_opinion_about_us",
     ]),
+
+    ...mapGetters("formData", ["allData"]),
   },
   data() {
     return {
