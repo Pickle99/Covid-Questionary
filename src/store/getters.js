@@ -1,18 +1,42 @@
 export default {
   testDate(state) {
-    return state.antibodies.test_date || "წწ-თთ-დდ";
+   if(state.had_covid === 'yes') {
+     if(state.had_antibody_test === 'true') {
+       return state.antibodies.test_date || "წწ-თთ-დდ";
+     };
+     return 'წწ-თთ-დდ';
+   }
+    return 'წწ-თთ-დდ';
   },
   number(state) {
-    return state.antibodies.number || null;
+    if(state.had_covid === 'yes') {
+      if(state.had_antibody_test === 'true') {
+        return state.antibodies.number || null;
+      }
+      return null;
+    }
+    return null;
   },
   covidSickness(state) {
-    return state.covid_sickness_date || "წწ-თთ-დდ";
+    if(state.had_covid === 'yes') {
+      if(state.had_antibody_test === 'false') {
+        return state.covid_sickness_date || "წწ-თთ-დდ";
+      }
+      return 'წწ-თთ-დდ';
+    }
+    return 'წწ-თთ-დდ';
   },
   vaccinationStage(state) {
-    return state.vaccination_stage || null;
+    if(state.had_vaccine === 'true') {
+      return state.vaccination_stage || null;
+    }
+    return null;
   },
   waiting(state) {
-    return state.i_am_waiting || null;
+    if(state.had_vaccine === 'false'){
+      return state.i_am_waiting || null;
+    }
+    return null;
   },
   meetings(state) {
     return state.what_about_meetings_in_live || null;
@@ -21,11 +45,14 @@ export default {
     return state.tell_us_your_opinion_about_us || null;
   },
   antibodyTest(state) {
-    if (state.had_antibody_test === "true") {
-      return true;
-    } else if (state.had_antibody_test === "false") {
-      return false;
-    }
+   if(state.had_covid === 'yes') {
+     if (state.had_antibody_test === "true") {
+       return true;
+     } else if (state.had_antibody_test === "false") {
+       return false;
+     }
+     return null;
+   }
     return null;
   },
   hadVaccine(state) {
